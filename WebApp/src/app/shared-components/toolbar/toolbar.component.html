@@ -1,0 +1,15 @@
+<mat-toolbar>
+  <button mat-icon-button (click)="toggleMenu.emit()">
+    <mat-icon>menu</mat-icon>
+  </button>
+  <span class="title mat-elevation-z3">Couple Finance</span>
+
+  <div class="search">
+    <mat-icon>search</mat-icon>
+    <input type="text" placeholder="Search">
+  </div>
+
+  <span class="spacer"></span>
+  <cf-user-avatar></cf-user-avatar>
+
+</mat-toolbar>

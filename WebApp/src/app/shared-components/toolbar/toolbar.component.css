@@ -1,0 +1,25 @@
+mat-toolbar{
+  color: var(--color-1);
+}
+.title {
+  background-color: var(--color-1);
+  color: white;
+  padding: 0px 10px 0px 10px;
+  border-radius: 6px;
+}
+
+.search {
+  display: flex;
+  flex-direction: row;
+  justify-content: start;
+  align-items: center;
+  margin-left: 10px;
+  color: var(--color-1);
+}
+
+.search input {
+  text-decoration: none;
+  outline: none;
+  border: none;
+  background-color: inherit;
+}
