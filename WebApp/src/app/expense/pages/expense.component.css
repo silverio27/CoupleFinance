@@ -1,0 +1,40 @@
+.content {
+  display: grid;
+  width: calc(100% - 20px);
+  height: calc(100% - 20px);
+  padding: 10px;
+}
+
+.header {
+  grid-area: header;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  color: var(--color-1);
+}
+.header span {
+  font-size: large;
+  font-weight: bold;
+}
+
+.table {
+  grid-area: table;
+}
+
+.resume {
+  grid-area: resume;
+}
+
+/* .header,
+.table,
+.resume {
+  border: 1px solid black;
+} */
+
+.layout {
+  grid-template-rows: 44px;
+  grid-template-areas:
+    "header header header"
+    "table table resume";
+}
