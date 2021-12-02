@@ -6,7 +6,8 @@ export interface UserData {
   category: string;
   who: string;
   value: number;
-  valueShared: number;
+  realValue: number;
+  bank:string;
 }
 
 /** Constants used to fill up our data base. */
@@ -30,7 +31,7 @@ const WHO: string[] = [
   styleUrls: ['./expense-table.component.css']
 })
 export class ExpenseTableComponent implements AfterViewInit{
-  displayedColumns: string[] = ['category', 'who', 'value', 'valueShared'];
+  displayedColumns: string[] = ['category', 'who','bank', 'value', 'realValue', 'actions'];
   dataSource: MatTableDataSource<UserData>;
 
   @ViewChild(MatPaginator) paginator!: MatPaginator;
@@ -64,8 +65,9 @@ function createNewUser(id: number): UserData {
   return {
     category: name,
     who: WHO[Math.round(Math.random() * (WHO.length - 1))],
+    bank: 'Nubank',
     value: ivalue,
-    valueShared: ivalue/ 2,
+    realValue: ivalue/ 2,
   };
 
 }
