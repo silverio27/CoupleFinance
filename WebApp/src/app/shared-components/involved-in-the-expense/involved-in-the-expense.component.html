@@ -1,0 +1,74 @@
+<div class="content">
+
+  <cf-user-avatar
+    [pic]="involveds[0].picture"
+    [showName]="false"
+    cdkOverlayOrigin
+    #trigger="cdkOverlayOrigin"
+    (clickAvatar)="showDetail = true"
+  ></cf-user-avatar>
+  <span>+ 1</span>
+  <ng-template
+    cdkConnectedOverlay
+    [cdkConnectedOverlayOrigin]="trigger"
+    [cdkConnectedOverlayOpen]="showDetail"
+  >
+    <div class="details mat-elevation-z3">
+      <div class="header">
+
+        <button mat-icon-button (click)="showDetail = false"><mat-icon>close</mat-icon></button>
+      </div>
+      <div class="detail" *ngFor="let item of involveds">
+        <cf-user-avatar
+          [pic]="item.picture"
+          [showName]="false"
+        ></cf-user-avatar>
+        <input
+          currencyMask
+          [(ngModel)]="item.value"
+          [options]="{ prefix: 'R$ ', thousands: '.', decimal: ',' }"
+        />
+        <button
+          [style.visibility]="item.owner ? 'hidden': 'visibility'"
+          color="warn"
+          mat-icon-button
+          (click)="deleteInvolved(item)"
+        >
+          <mat-icon>delete</mat-icon>
+        </button>
+      </div>
+      <button *ngIf="!showAddInvolved" mat-icon-button (click)="showAddInvolved = true"><mat-icon>add</mat-icon></button>
+
+        <mat-form-field appearance="outline" *ngIf="showAddInvolved">
+          <mat-label>Envolvido</mat-label>
+          <input matInput
+                 aria-label="State"
+                 [matAutocomplete]="auto">
+          <mat-autocomplete #auto="matAutocomplete" >
+            <mat-option *ngFor="let user of users" [value]="user.name" (onSelectionChange)="addUser(user)">
+              <img class="user-avatar-img" [height]="25" [width]="25" aria-hidden [src]="user.picture" style="  vertical-align: middle;" height="25">
+              <span>{{user.name}}</span> |
+            </mat-option>
+          </mat-autocomplete>
+        </mat-form-field>
+
+
+      <div class="detail">
+        <span>Total</span>
+        <input
+          id="total"
+          currencyMask
+          [(ngModel)]="total"
+          [options]="{ prefix: 'R$ ', thousands: '.', decimal: ',' }"
+        />
+      </div>
+
+      <button id="save" mat-raised-button [disabled]="matchValue()" (click)="showDetail = false">
+        Salvar
+      </button>
+      <span style="color: red; font-size: smaller;" *ngIf="matchValue()"
+        >A soma da distribuição tem que ser igual ao total</span
+      >
+    </div>
+  </ng-template>
+</div>

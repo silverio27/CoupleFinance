@@ -1,6 +1,6 @@
 
 <div class="content">
 
-    <img class="avatar mat-elevation-z1" src="assets/lucas.jpg" alt="" srcset="">
-    <span>Lucas Silvério</span>
+    <img class="user-avatar-img mat-elevation-z1" [src]="pic" (click)="clickAvatar.emit()" [matTooltip]="name">
+    <span *ngIf="showName" >{{name}}</span>
 </div>

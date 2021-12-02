@@ -4,7 +4,7 @@ import {
   ChangeDetectionStrategy,
   Input,
 } from "@angular/core";
-import { ICategoryPresents } from "../icategory-presents";
+import { ICategoryPresents } from "../interfaces/icategory-presents";
 
 @Component({
   selector: "cf-category-presents",
