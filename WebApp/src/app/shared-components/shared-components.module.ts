@@ -14,9 +14,10 @@ import {MatInputModule} from '@angular/material/input';
 
 import { SideMenuComponent } from "./side-menu/side-menu.component";
 import { UserAvatarComponent } from './user-avatar/user-avatar.component';
+import { CategoryPresentsComponent } from './category-presents/category-presents.component';
 
 @NgModule({
-  declarations: [SideMenuComponent, ToolbarComponent, UserAvatarComponent],
+  declarations: [SideMenuComponent, ToolbarComponent, UserAvatarComponent, CategoryPresentsComponent],
   imports: [
     CommonModule,
     RouterModule,
@@ -29,6 +30,6 @@ import { UserAvatarComponent } from './user-avatar/user-avatar.component';
     MatInputModule
 
   ],
-  exports: [SideMenuComponent, ToolbarComponent],
+  exports: [SideMenuComponent, ToolbarComponent, CategoryPresentsComponent],
 })
 export class SharedComponentsModule {}

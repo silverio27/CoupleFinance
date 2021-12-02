@@ -1,0 +1,37 @@
+.content {
+  display: grid;
+  justify-content: start;
+  align-items: center;
+  gap: 0px 10px;
+}
+
+.cover {
+  grid-area: cover;
+}
+
+.cover mat-icon {
+  border-radius: 100%;
+  padding: 3px;
+}
+
+.category {
+  grid-area: category;
+}
+
+.category span {
+  color: var(--color-1);
+  font-weight: bold;
+}
+
+.description {
+  grid-area: description;
+}
+.description span {
+  font-size: large;
+}
+
+.layout {
+  grid-template-areas:
+    "cover description"
+    "cover category";
+}

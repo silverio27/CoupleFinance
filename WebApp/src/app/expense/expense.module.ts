@@ -12,6 +12,7 @@ import {MatFormFieldModule} from '@angular/material/form-field';
 
 import { ExpenseTableComponent } from './components/expense-table/expense-table.component';
 import { ExpenseResumeComponent } from './components/expense-resume/expense-resume.component';
+import { SharedComponentsModule } from '../shared-components/shared-components.module';
 
 
 
@@ -30,7 +31,7 @@ import { ExpenseResumeComponent } from './components/expense-resume/expense-resu
     MatTableModule,
     MatPaginatorModule,
     MatFormFieldModule,
-    
+    SharedComponentsModule
   ]
 })
 export class ExpenseModule { }
