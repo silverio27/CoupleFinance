@@ -13,6 +13,7 @@ const routes: Routes = [
       import("./expense/expense.module").then((m) => m.ExpenseModule),
   },
   { path: '', pathMatch: 'full', redirectTo: 'expense' },
+  { path: 'category', loadChildren: () => import('./category/category.module').then(m => m.CategoryModule) },
 ];
 
 @NgModule({

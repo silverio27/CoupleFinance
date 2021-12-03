@@ -1,0 +1,50 @@
+.content {
+  padding: 10px;
+}
+input {
+  text-decoration: none;
+  border: none;
+  background-color: inherit;
+}
+
+.preview,
+.header {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+}
+.header {
+  color: var(--color-1);
+}
+.header span {
+  font-size: large;
+  font-weight: bold;
+}
+.preview {
+  width: 100%;
+}
+.new-category {
+  background-color: white;
+  height: 400px;
+  width: 350px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  padding: 20px;
+  border-radius: 15px;
+}
+.new-category button ,
+.new-category mat-form-field {
+  width: 100%;
+}
+
+.circle {
+  vertical-align: middle;
+  width: 25px;
+  height: 25px;
+  border-radius: 25px;
+  border: none;
+}
+
