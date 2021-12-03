@@ -13,6 +13,10 @@ import {MatFormFieldModule} from '@angular/material/form-field';
 import { ExpenseTableComponent } from './components/expense-table/expense-table.component';
 import { ExpenseResumeComponent } from './components/expense-resume/expense-resume.component';
 import { SharedComponentsModule } from '../shared-components/shared-components.module';
+import { ExpenseEditComponent } from './components/expense-edit/expense-edit.component';
+import { MatAutocompleteModule } from '@angular/material/autocomplete';
+import { MatInputModule } from '@angular/material/input';
+import { CurrencyMaskModule } from 'ng2-currency-mask';
 
 
 
@@ -20,7 +24,8 @@ import { SharedComponentsModule } from '../shared-components/shared-components.m
   declarations: [
     ExpenseComponent,
     ExpenseTableComponent,
-    ExpenseResumeComponent
+    ExpenseResumeComponent,
+    ExpenseEditComponent
   ],
   imports: [
     CommonModule,
@@ -31,6 +36,9 @@ import { SharedComponentsModule } from '../shared-components/shared-components.m
     MatTableModule,
     MatPaginatorModule,
     MatFormFieldModule,
+    MatInputModule,
+    MatAutocompleteModule,
+    CurrencyMaskModule,
     SharedComponentsModule
   ]
 })

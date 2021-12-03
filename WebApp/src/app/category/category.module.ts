@@ -12,7 +12,7 @@ import { MatAutocompleteModule } from '@angular/material/autocomplete';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { SharedComponentsModule } from '../shared-components/shared-components.module';
 import { CategoryViewComponent } from './pages/category-view/category-view.component';
-import { CategoryEditComponent } from './components/category-component/category-editt.component';
+import { CategoryEditComponent } from './components/category-component/category-edit.component';
 
 
 @NgModule({

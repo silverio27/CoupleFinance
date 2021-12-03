@@ -1,0 +1,65 @@
+<div class="new-expense ">
+  <div class="header">
+    <div class="header">
+      <span>Nova despesa</span>
+      <span class="spacer"></span>
+      <button mat-icon-button (click)="close.emit()">
+        <mat-icon>close</mat-icon>
+      </button>
+    </div>
+  </div>
+
+  <mat-form-field appearance="outline">
+    <mat-label>Categoria</mat-label>
+    <input
+      matInput
+      aria-label="State"
+      [matAutocomplete]="auto"
+      [(ngModel)]="category"
+      name="category"
+    />
+    <mat-autocomplete #auto="matAutocomplete" [displayWith]="displayFn">
+      <mat-option *ngFor="let category of categories" [value]="category">
+        <mat-icon class="circle" [style.backgroundColor]="category.color"
+          >{{category.icon}}</mat-icon
+        >
+        <span>{{category.description}}</span>
+      </mat-option>
+    </mat-autocomplete>
+  </mat-form-field>
+
+  <mat-form-field appearance="outline">
+    <mat-label>Descrição</mat-label>
+    <input matInput [(ngModel)]="description" />
+  </mat-form-field>
+
+  <mat-form-field appearance="outline">
+    <mat-label>Banco</mat-label>
+    <input
+      matInput
+      [matAutocomplete]="bankopt"
+      [(ngModel)]="bank"
+      name="bank"
+    />
+    <mat-autocomplete #bankopt="matAutocomplete">
+      <mat-option *ngFor="let bank of banks" [value]="bank">
+        <span>{{bank}}</span>
+      </mat-option>
+    </mat-autocomplete>
+  </mat-form-field>
+
+  <mat-form-field appearance="outline">
+    <mat-label>Valor</mat-label>
+    <cf-involved-in-the-expense></cf-involved-in-the-expense>
+    <input
+      matInput
+      [(ngModel)]="description"
+      currencyMask
+      [(ngModel)]="value"
+      [options]="{ prefix: 'R$ ', thousands: '.', decimal: ',' }"
+    />
+  </mat-form-field>
+  <button id="save" mat-raised-button (click)="add()" >Salvar</button>
+  
+
+</div>

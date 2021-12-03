@@ -1,23 +1,9 @@
 import { Component, OnInit, ViewChild } from "@angular/core";
-import { FormControl } from "@angular/forms";
-import { Observable } from "rxjs";
 
-import { delay, map, startWith } from "rxjs/operators";
-import { ICategoryPresents } from "src/app/shared-components/interfaces/icategory-presents";
-import { CategoryEditComponent } from "../../components/category-component/category-editt.component";
-import { IconService } from "../../icon.service";
+import { CategoryEditComponent } from "../../components/category-component/category-edit.component";
+import { Category } from "../../interfaces/category";
 
-export interface Category {
-  id: number;
-  color: string;
-  description: string;
-  icon: string;
-}
-export interface NewCategory {
-  color: string;
-  description: string;
-  icon: string;
-}
+
 @Component({
   templateUrl: "./category-view.component.html",
   styleUrls: ["./category-view.component.css"],

@@ -10,10 +10,8 @@ import { Observable } from "rxjs";
 import { map, startWith } from "rxjs/operators";
 import { ICategoryPresents } from "src/app/shared-components/interfaces/icategory-presents";
 import { IconService } from "../../icon.service";
-import {
-  Category,
-  NewCategory,
-} from "../../pages/category-view/category-view.component";
+import { Category, NewCategory } from "../../interfaces/category";
+
 
 @Component({
   selector: "cf-category-edit",
