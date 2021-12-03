@@ -1,0 +1,56 @@
+<div class="new-category mat-elevation-z4">
+  <div class="header">
+    <span>Nova categoria</span>
+    <span class="spacer"></span>
+    <button mat-icon-button (click)="close.emit()">
+      <mat-icon>close</mat-icon>
+    </button>
+  </div>
+  <mat-form-field class="example-full-width" appearance="outline">
+    <mat-label>Descrição</mat-label>
+    <input matInput [(ngModel)]="editCategory.description" name="description" />
+  </mat-form-field>
+
+  <mat-form-field appearance="outline">
+    <mat-label>Cor</mat-label>
+    <input
+      matInput
+      aria-label="State"
+      [matAutocomplete]="auto"
+      [(ngModel)]="editCategory.color"
+      name="color"
+    />
+    <mat-autocomplete #auto="matAutocomplete">
+      <mat-option *ngFor="let color of colors" [value]="color">
+        <mat-icon class="circle" [style.backgroundColor]="color">insert_emoticon</mat-icon>
+        <span>{{color}}</span>
+      </mat-option>
+    </mat-autocomplete>
+  </mat-form-field>
+
+  <mat-form-field appearance="outline">
+    <mat-label>Ícone</mat-label>
+    <input
+      matInput
+      aria-label="State"
+      [matAutocomplete]="icone"
+      [formControl]="iconControl"
+      [(ngModel)]="editCategory.icon"
+      (ngModelChange)="updatePreview()"
+      name="icon"
+    />
+    <mat-autocomplete #icone="matAutocomplete">
+      <mat-option *ngFor="let icon of filteredOptions | async" [value]="icon">
+        <mat-icon>{{icon}}</mat-icon>
+
+        <span>{{icon}}</span>
+      </mat-option>
+    </mat-autocomplete>
+  </mat-form-field>
+  <span>Pré visualização</span>
+  <div class="preview">
+    <cf-category-presents [value]="preview"></cf-category-presents>
+  </div>
+
+  <button id="save" mat-raised-button (click)="add()">Salvar</button>
+</div>

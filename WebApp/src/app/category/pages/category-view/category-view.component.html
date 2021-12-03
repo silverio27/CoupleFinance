@@ -1,0 +1,30 @@
+<div class="content">
+  <div class="header">
+    <span>Categorias</span>
+    <span class="spacer"></span>
+    <button
+      mat-raised-button
+      cdkOverlayOrigin
+      #trigger="cdkOverlayOrigin"
+      (click)="showAddCategory = true"
+    >
+      Novo
+    </button>
+    <ng-template
+      cdkConnectedOverlay
+      [cdkConnectedOverlayOrigin]="trigger"
+      [cdkConnectedOverlayOpen]="showAddCategory"
+    >
+      <cf-category-edit #categoryEdit (close)="showAddCategory = false" (save)="add($event)"></cf-category-edit>
+    </ng-template>
+  </div>
+  <mat-list>
+    <mat-list-item *ngFor="let item of categories">
+      <span>
+        <input type="text" [(ngModel)]="item.description" />
+      </span>
+      <button mat-icon-button color="primary" (click)="edit(item)"><mat-icon>edit</mat-icon></button>
+      <button mat-icon-button color="warn" (click)="remove(item)"><mat-icon>delete</mat-icon></button>
+    </mat-list-item>
+  </mat-list>
+</div>
