@@ -4,6 +4,9 @@
   height: calc(100% - 20px);
   padding: 10px;
 }
+mat-sidenav-container {
+  height: 100%;
+}
 
 .header {
   grid-area: header;

@@ -17,6 +17,8 @@ import { ExpenseEditComponent } from './components/expense-edit/expense-edit.com
 import { MatAutocompleteModule } from '@angular/material/autocomplete';
 import { MatInputModule } from '@angular/material/input';
 import { CurrencyMaskModule } from 'ng2-currency-mask';
+import { MatSidenavModule } from '@angular/material/sidenav';
+import { ExpenseFilterComponent } from './components/expense-filter/expense-filter.component';
 
 
 
@@ -25,7 +27,8 @@ import { CurrencyMaskModule } from 'ng2-currency-mask';
     ExpenseComponent,
     ExpenseTableComponent,
     ExpenseResumeComponent,
-    ExpenseEditComponent
+    ExpenseEditComponent,
+    ExpenseFilterComponent
   ],
   imports: [
     CommonModule,
@@ -39,7 +42,8 @@ import { CurrencyMaskModule } from 'ng2-currency-mask';
     MatInputModule,
     MatAutocompleteModule,
     CurrencyMaskModule,
-    SharedComponentsModule
+    SharedComponentsModule,
+    MatSidenavModule
   ]
 })
 export class ExpenseModule { }

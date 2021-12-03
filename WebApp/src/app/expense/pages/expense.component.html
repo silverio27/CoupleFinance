@@ -1,15 +1,26 @@
-<div class="content layout">
-    <div class="header">
-        <span>Despesas</span>
-        <button mat-icon-button ><mat-icon>filter_alt</mat-icon></button>
-        <span class="spacer"></span>
-        <button mat-raised-button (click)="showEdit = true">Novo</button>
-    </div>
-    <div class="table">
-        <cf-expense-table></cf-expense-table>
-    </div>
-    <div class="resume">
-        <cf-expense-resume *ngIf="!showEdit"></cf-expense-resume>
-        <cf-expense-edit (close)="showEdit = false" *ngIf="showEdit"></cf-expense-edit>
-    </div>
-</div>
+<mat-sidenav-container>
+  <mat-sidenav [opened]="true" >
+      <cf-expense-filter></cf-expense-filter>
+  </mat-sidenav>
+  <mat-sidenav-content>
+    <div class="content layout">
+        <div class="header">
+          <span>Despesas</span>
+          <button mat-icon-button><mat-icon>filter_alt</mat-icon></button>
+          <span class="spacer"></span>
+          <button mat-raised-button (click)="showEdit = true">Novo</button>
+        </div>
+        <div class="table">
+          <cf-expense-table></cf-expense-table>
+        </div>
+        <div class="resume">
+          <cf-expense-resume *ngIf="!showEdit"></cf-expense-resume>
+          <cf-expense-edit
+            (close)="showEdit = false"
+            *ngIf="showEdit"
+          ></cf-expense-edit>
+        </div>
+      </div>
+  </mat-sidenav-content>
+</mat-sidenav-container>
+
