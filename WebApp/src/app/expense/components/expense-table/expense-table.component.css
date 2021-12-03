@@ -15,7 +15,7 @@ table {
     color: var(--color-1); font-weight: bold;
   }
   .container {
-    height:500px;
+    height:600px;
     overflow: auto;
   }
   

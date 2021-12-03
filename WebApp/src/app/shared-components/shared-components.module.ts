@@ -50,6 +50,7 @@ import {MatAutocompleteModule} from '@angular/material/autocomplete';
     ToolbarComponent,
     CategoryPresentsComponent,
     InvolvedInTheExpenseComponent,
+    UserAvatarComponent
   ],
 })
 export class SharedComponentsModule {}

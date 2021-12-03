@@ -1,10 +1,34 @@
 <div class="content">
   <div class="header">
-    <span>Resumo</span>
+    <span><strong>Resumo</strong> </span>
     <span class="spacer"></span>
   </div>
-  <span>Total de gastos: {{total | currency}}</span>
-  <span>Total real: {{ totalReal | currency }}</span>
-  <span>Reembolsos</span>
-  <span>Gastos por categoria</span>
+  <div class="row">
+    <span>Total de gastos: <strong>{{total | currency}}</strong> </span>
+  </div>
+  <div class="row">
+    <span>Total real: <strong>{{ totalReal | currency }}</strong> </span>
+  </div>
+  <div class="row">
+    <span>Reembolsos</span>
+  </div>
+  <div class="row">
+    <cf-user-avatar [showName]="false"></cf-user-avatar>
+    <strong> {{reimbursement|currency}}</strong>
+    <mat-icon>arrow_right_alt</mat-icon>
+    <cf-user-avatar [showName]="false"></cf-user-avatar>
+  </div>
+
+  <div class="row">
+    <span>Gastos por categoria</span>
+  </div>
+  <div class="categories">
+    <div class="category" *ngFor="let category of categories">
+      <mat-icon class="circle" [style.backgroundColor]="category.color"
+        >{{category.icon}}</mat-icon
+      >
+      <span>{{category.description}}</span>
+      <span>{{category.value | currency}}</span>
+    </div>
+  </div>
 </div>
