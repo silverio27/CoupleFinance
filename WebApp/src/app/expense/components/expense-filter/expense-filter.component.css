@@ -1,0 +1,28 @@
+.content {
+    background-color: white;
+    height: 400px;
+    width: 350px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    padding: 20px;
+    border-radius: 15px;
+  }
+  .header {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    color: var(--color-1);
+    width: 100%;
+  }
+
+  #apply,
+  mat-form-field{
+    width: 100%;
+  }
+
+  #apply {
+    margin-top: 10px;
+  }

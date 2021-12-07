@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { ExpenseRoutingModule } from './expense-routing.module';
 import { ExpenseComponent } from './pages/expense.component';
@@ -20,6 +20,9 @@ import { CurrencyMaskModule } from 'ng2-currency-mask';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { ExpenseFilterComponent } from './components/expense-filter/expense-filter.component';
 
+import {MatDatepickerModule} from '@angular/material/datepicker';
+import {MatSlideToggleModule} from '@angular/material/slide-toggle';
+
 
 
 @NgModule({
@@ -33,6 +36,7 @@ import { ExpenseFilterComponent } from './components/expense-filter/expense-filt
   imports: [
     CommonModule,
     FormsModule,
+    ReactiveFormsModule,
     ExpenseRoutingModule,
     MatButtonModule,
     MatIconModule,
@@ -43,7 +47,9 @@ import { ExpenseFilterComponent } from './components/expense-filter/expense-filt
     MatAutocompleteModule,
     CurrencyMaskModule,
     SharedComponentsModule,
-    MatSidenavModule
+    MatSidenavModule,
+    MatDatepickerModule,
+    MatSlideToggleModule
   ]
 })
 export class ExpenseModule { }

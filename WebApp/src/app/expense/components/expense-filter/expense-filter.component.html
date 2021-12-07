@@ -1,1 +1,77 @@
-<p>expense-filter works!</p>
+<div class="content">
+    <div class="header">
+        <span>Filtros</span>
+        <span class="spacer"></span>
+        <button mat-icon-button (click)="close.emit()">
+          <mat-icon>close</mat-icon>
+        </button>
+      </div>
+
+      <mat-form-field appearance="outline">
+        <mat-label>Month and Year</mat-label>
+        <input matInput [matDatepicker]="dp" [formControl]="date">
+        <mat-datepicker-toggle matSuffix [for]="dp"></mat-datepicker-toggle>
+        <mat-datepicker #dp
+                        startView="year"
+                        (yearSelected)="chosenYearHandler($event)"
+                        (monthSelected)="chosenMonthHandler($event, dp)"
+                        panelClass="example-month-picker">
+        </mat-datepicker>
+      </mat-form-field>
+
+      <mat-form-field appearance="outline" >
+        <mat-label>Envolvido</mat-label>
+        <input matInput aria-label="State" [matAutocomplete]="auto" />
+        <mat-autocomplete #auto="matAutocomplete">
+          <mat-option
+            *ngFor="let user of users"
+            [value]="user.name"
+          >
+            <img
+              class="user-avatar-img"
+              [height]="25"
+              [width]="25"
+              aria-hidden
+              [src]="user.picture"
+              style="vertical-align: middle;"
+              height="25"
+            />
+            <span>{{user.name}}</span> |
+          </mat-option>
+        </mat-autocomplete>
+      </mat-form-field>
+
+      <mat-form-field appearance="outline">
+        <mat-label>Banco</mat-label>
+        <input
+          matInput
+          [matAutocomplete]="bankopt"
+          [(ngModel)]="bank"
+          name="bank"
+        />
+        <mat-autocomplete #bankopt="matAutocomplete">
+          <mat-option *ngFor="let bank of banks" [value]="bank">
+            <span>{{bank}}</span>
+          </mat-option>
+        </mat-autocomplete>
+      </mat-form-field>
+      
+      <mat-form-field appearance="outline">
+        <mat-label>Categoria</mat-label>
+        <input
+          matInput
+          [matAutocomplete]="catopt"
+          [(ngModel)]="category"
+          name="bank"
+        />
+        <mat-autocomplete #catopt="matAutocomplete">
+          <mat-option *ngFor="let category of categories" [value]="category">
+            <span>{{category}}</span>
+          </mat-option>
+        </mat-autocomplete>
+      </mat-form-field>
+
+      <mat-slide-toggle>Somente compartilhado</mat-slide-toggle>
+
+      <button id="apply" mat-raised-button (click)="apply.emit()">Aplicar</button>
+</div>

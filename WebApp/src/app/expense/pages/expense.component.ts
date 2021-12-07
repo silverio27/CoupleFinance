@@ -8,6 +8,7 @@ import { Component, OnInit } from '@angular/core';
 export class ExpenseComponent implements OnInit {
 
   showEdit = false;
+  showFilter = false;
   constructor() { }
 
   ngOnInit(): void {
