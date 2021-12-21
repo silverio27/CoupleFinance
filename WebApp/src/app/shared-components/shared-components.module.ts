@@ -18,7 +18,7 @@ import { CategoryPresentsComponent } from "./category-presents/category-presents
 import { InvolvedInTheExpenseComponent } from "./involved-in-the-expense/involved-in-the-expense.component";
 import { MatTooltipModule } from "@angular/material/tooltip";
 import { CurrencyMaskModule } from "ng2-currency-mask";
-import { FormsModule } from "@angular/forms";
+import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 import {MatAutocompleteModule} from '@angular/material/autocomplete';
 
 @NgModule({
@@ -33,6 +33,7 @@ import {MatAutocompleteModule} from '@angular/material/autocomplete';
     CommonModule,
     RouterModule,
     FormsModule,
+    ReactiveFormsModule,
     MatSidenavModule,
     MatToolbarModule,
     MatIconModule,
