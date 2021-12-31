@@ -1,26 +1,30 @@
 <mat-sidenav-container>
-  <mat-sidenav [opened]="showFilter" >
-      <cf-expense-filter (close)="showFilter = false" (apply)="showFilter = false"></cf-expense-filter>
+  <mat-sidenav [opened]="showFilter">
+    <cf-expense-filter
+      (close)="showFilter = false"
+      (apply)="showFilter = false"
+    ></cf-expense-filter>
   </mat-sidenav>
   <mat-sidenav-content>
     <div class="content layout">
-        <div class="header">
-          <span>Despesas</span>
-          <button mat-icon-button (click)="showFilter = !showFilter"><mat-icon>filter_alt</mat-icon></button>
-          <span class="spacer"></span>
-          <button mat-raised-button (click)="showEdit = true">Novo</button>
-        </div>
-        <div class="table">
-          <cf-expense-table></cf-expense-table>
-        </div>
-        <div class="resume">
-          <cf-expense-resume *ngIf="!showEdit"></cf-expense-resume>
-          <cf-expense-edit
-            (close)="showEdit = false"
-            *ngIf="showEdit"
-          ></cf-expense-edit>
-        </div>
+      <div class="header">
+        <span>Despesas</span>
+        <button mat-icon-button (click)="showFilter = !showFilter">
+          <mat-icon>filter_alt</mat-icon>
+        </button>
+        <span class="spacer"></span>
+        <button mat-raised-button (click)="showEdit = true">Novo</button>
       </div>
+      <div class="table">
+        <cf-expense-table></cf-expense-table>
+      </div>
+      <div class="resume">
+        <cf-expense-resume *ngIf="!showEdit"></cf-expense-resume>
+        <cf-expense-edit
+          (close)="showEdit = false"
+          *ngIf="showEdit"
+        ></cf-expense-edit>
+      </div>
+    </div>
   </mat-sidenav-content>
 </mat-sidenav-container>
-

@@ -5,10 +5,6 @@
   padding: 10px;
 }
 
-mat-sidenav-container {
-  height: 100%;
-}
-
 .header {
   grid-area: header;
   display: flex;
@@ -35,5 +31,26 @@ mat-sidenav-container {
   grid-template-rows: 54px;
   grid-template-areas:
     "header header header"
-    "table table resume";
+    "table table table";
+}
+table {
+  width: 100%;
+}
+
+.mat-form-field {
+  font-size: 14px;
+  width: 100%;
+}
+
+td,
+th {
+  width: 25%;
+}
+.mat-header-cell {
+  color: var(--color-1);
+  font-weight: bold;
+}
+.container {
+  height: 600px;
+  overflow: auto;
 }
