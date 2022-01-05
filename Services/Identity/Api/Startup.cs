@@ -3,7 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Api.SeedWork;
+using Domain.Users;
 using FluentValidation.AspNetCore;
+using Infra;
 using MediatR;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -33,12 +35,15 @@ namespace Api
             services.AddControllers((x) => x.Filters.Add(typeof(ValidationActionFilter)))
                 .AddFluentValidation(x => x.RegisterValidatorsFromAssemblyContaining<Startup>());
             
+            services.AddCosmosRepository();
+            services.AddSingleton<IUsers, Infra.Users>();
+            services.AddAutoMapper(x=>x.AddProfile(new UserProfile()));
+            services.AddMediatR(typeof(Startup));
             services.AddSwaggerGen(c =>
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "Api", Version = "v1" });
             });
 
-            services.AddMediatR(typeof(Startup));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

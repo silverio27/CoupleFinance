@@ -11,7 +11,7 @@ namespace Domain.Users
         public bool Active { get; private set; }
         public User(string name, string email)
         {
-            Id = new Guid();
+            Id = Guid.NewGuid();
             ChangeName(name);
             ChangeEmail(email);
             var randomPassword = Users.Password.GenerateRandom();

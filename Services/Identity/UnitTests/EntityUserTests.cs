@@ -15,6 +15,7 @@ namespace UnitTests
         {
 
             Assert.True(_user.Active);
+            Assert.NotEqual(System.Guid.Empty, _user.Id);
         }
 
         [Fact]
