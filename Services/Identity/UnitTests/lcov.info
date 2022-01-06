@@ -70,11 +70,11 @@ FNH:0
 end_of_record
 SF:C:\work\personal\projects\CoupleFinance\Services\Identity\Api\Users\NewUser.cs
 FN:13,System.String Api.Users.NewUser::get_Name()
-FNDA:8,System.String Api.Users.NewUser::get_Name()
-DA:14,8
+FNDA:9,System.String Api.Users.NewUser::get_Name()
+DA:14,9
 FN:14,System.String Api.Users.NewUser::get_Email()
-FNDA:8,System.String Api.Users.NewUser::get_Email()
-DA:15,8
+FNDA:9,System.String Api.Users.NewUser::get_Email()
+DA:15,9
 FN:19,System.Void Api.Users.NewUserValidation::.ctor()
 FNDA:2,System.Void Api.Users.NewUserValidation::.ctor()
 DA:20,2
@@ -82,54 +82,87 @@ DA:21,2
 DA:22,2
 DA:23,2
 DA:24,2
-FN:30,System.Void Api.Users.CreateUser::.ctor(Domain.Users.IUsers,Microsoft.Extensions.Logging.ILogger`1<Api.Users.CreateUser>)
-FNDA:2,System.Void Api.Users.CreateUser::.ctor(Domain.Users.IUsers,Microsoft.Extensions.Logging.ILogger`1<Api.Users.CreateUser>)
-DA:31,2
+FN:31,System.Void Api.Users.CreateUser::.ctor(Domain.Users.IUsers,MediatR.IMediator,Microsoft.Extensions.Logging.ILogger`1<Api.Users.CreateUser>)
+FNDA:2,System.Void Api.Users.CreateUser::.ctor(Domain.Users.IUsers,MediatR.IMediator,Microsoft.Extensions.Logging.ILogger`1<Api.Users.CreateUser>)
 DA:32,2
 DA:33,2
 DA:34,2
 DA:35,2
-FN:36,System.Void Api.Users.CreateUser/<Handle>d__3::MoveNext()
-FNDA:2,System.Void Api.Users.CreateUser/<Handle>d__3::MoveNext()
+DA:36,2
 DA:37,2
+FN:38,System.Void Api.Users.CreateUser/<Handle>d__4::MoveNext()
+FNDA:2,System.Void Api.Users.CreateUser/<Handle>d__4::MoveNext()
 DA:39,2
-DA:40,2
-DA:41,1
-DA:42,1
+DA:41,2
+DA:42,2
+DA:43,1
 DA:44,1
 DA:45,1
 DA:47,1
-DA:50,2
-LF:21
-LH:21
+DA:48,1
+DA:50,1
+DA:53,2
+LF:23
+LH:23
 BRF:0
 BRH:0
 FNF:5
 FNH:5
 end_of_record
 SF:C:\work\personal\projects\CoupleFinance\Services\Identity\Api\Users\UserController.cs
-FN:17,System.Void Api.Users.UserController::.ctor(MediatR.IMediator)
+FN:14,System.Void Api.Users.UserController::.ctor(MediatR.IMediator)
 FNDA:0,System.Void Api.Users.UserController::.ctor(MediatR.IMediator)
+DA:15,0
+DA:16,0
+DA:17,0
 DA:18,0
-DA:19,0
-DA:20,0
-DA:21,0
-FN:26,System.Void Api.Users.UserController/<Create>d__2::MoveNext()
+FN:23,System.Void Api.Users.UserController/<Create>d__2::MoveNext()
 FNDA:0,System.Void Api.Users.UserController/<Create>d__2::MoveNext()
+DA:24,0
+DA:25,0
+DA:26,0
 DA:27,0
-DA:28,0
 DA:29,0
 DA:30,0
-DA:32,0
-DA:33,0
-BRDA:29,179,0,0
-BRDA:29,179,1,0
+BRDA:26,179,0,0
+BRDA:26,179,1,0
 LF:10
 LH:0
 BRF:2
 BRH:0
 FNF:2
 FNH:0
+end_of_record
+SF:C:\work\personal\projects\CoupleFinance\Services\Identity\Api\Users\WelcomeNotification.cs
+FN:18,System.String Api.Users.WelcomeNotification::get_Name()
+FNDA:1,System.String Api.Users.WelcomeNotification::get_Name()
+DA:19,1
+FN:19,System.String Api.Users.WelcomeNotification::get_Email()
+FNDA:1,System.String Api.Users.WelcomeNotification::get_Email()
+DA:20,1
+FN:12,System.Void Api.Users.WelcomeNotification::.ctor(System.String,System.String)
+FNDA:1,System.Void Api.Users.WelcomeNotification::.ctor(System.String,System.String)
+DA:13,1
+DA:14,1
+DA:15,1
+DA:16,1
+DA:17,1
+FN:25,System.Void Api.Users.SendWelcomeEmail/<Handle>d__0::MoveNext()
+FNDA:0,System.Void Api.Users.SendWelcomeEmail/<Handle>d__0::MoveNext()
+DA:26,0
+DA:27,0
+DA:28,0
+DA:29,0
+DA:30,0
+DA:31,0
+DA:32,0
+DA:33,0
+LF:15
+LH:7
+BRF:0
+BRH:0
+FNF:4
+FNH:3
 end_of_record
 SF:C:\work\personal\projects\CoupleFinance\Services\Identity\Api\SeedWork\Response.cs
 FN:11,System.String Api.SeedWork.Response::get_Message()

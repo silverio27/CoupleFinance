@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net.Mail;
 using System.Threading.Tasks;
 using Api.SeedWork;
 using Domain.Users;
@@ -39,6 +40,17 @@ namespace Api
             services.AddSingleton<IUsers, Infra.Users>();
             services.AddAutoMapper(x=>x.AddProfile(new UserProfile()));
             services.AddMediatR(typeof(Startup));
+            
+            SmtpClient client = new SmtpClient
+            {
+                Host = "smtp.gmail.com",
+                Port = 587,
+                EnableSsl = true,
+                Credentials = new System.Net.NetworkCredential(Configuration["EmailNotification:Sender"], Configuration["EmailNotification:Password"])
+            };
+
+            services.AddFluentEmail("noreplysharefinance@gmail.com")
+                .AddSmtpSender(client);
             services.AddSwaggerGen(c =>
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "Api", Version = "v1" });

@@ -28,10 +28,12 @@ namespace Api.Users
     {
         IUsers _users;
         ILogger<CreateUser> _logger;
-        public CreateUser(IUsers users, ILogger<CreateUser> logger)
+        IMediator _mediaotor;
+        public CreateUser(IUsers users, IMediator mediator, ILogger<CreateUser> logger)
         {
             _users = users;
             _logger = logger;
+            _mediaotor = mediator;
         }
         public async Task<Response> Handle(NewUser request, CancellationToken cancellationToken)
         {
@@ -39,6 +41,7 @@ namespace Api.Users
             {
                 var user = new User(request.Name, request.Email);
                 await _users.Create(user);
+                await _mediaotor.Publish(new WelcomeNotification(request.Name, request.Email));
                 return new("Usuário criado.");
             }
             catch (Exception e)
