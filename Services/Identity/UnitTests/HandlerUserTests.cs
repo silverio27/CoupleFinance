@@ -26,5 +26,20 @@ namespace UnitTests
             var result = await createUser.Handle(newUser, new System.Threading.CancellationToken());
             Assert.True(result.Success);
         }
+
+        [Fact]
+        public async Task Create_Failed_By_Invalid_Info()
+        {
+            var newUser = new NewUser()
+            {
+                Email = "",
+                Name = ""
+            };
+            var repository = new Mock<IUsers>();
+            var logger = new Mock<ILogger<CreateUser>>(); 
+            var createUser = new CreateUser(repository.Object, logger.Object);
+            var result = await createUser.Handle(newUser, new System.Threading.CancellationToken());
+            Assert.False(result.Success);
+        }
     }
 }

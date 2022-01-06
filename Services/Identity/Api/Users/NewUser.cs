@@ -1,3 +1,4 @@
+using System;
 using System.Threading;
 using System.Threading.Tasks;
 using Api.SeedWork;
@@ -34,9 +35,18 @@ namespace Api.Users
         }
         public async Task<Response> Handle(NewUser request, CancellationToken cancellationToken)
         {
-            var user = new User(request.Name, request.Email);
-            await _users.Create(user);
-            return new("Usuário criado.");
+            try
+            {
+                var user = new User(request.Name, request.Email);
+                await _users.Create(user);
+                return new("Usuário criado.");
+            }
+            catch (Exception e)
+            {
+
+                return new(e.Message, false);
+            }
+
         }
     }
 }
