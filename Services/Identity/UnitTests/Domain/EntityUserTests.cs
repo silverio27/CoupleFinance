@@ -1,7 +1,7 @@
 using Domain.Users;
 using Xunit;
 
-namespace UnitTests
+namespace UnitTests.Domain
 {
     public class EntityUserTests
     {

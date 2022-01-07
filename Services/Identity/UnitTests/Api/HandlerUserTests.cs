@@ -1,6 +1,3 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Threading.Tasks;
 using Api.Users;
 using Domain.Users;
@@ -9,7 +6,7 @@ using Microsoft.Extensions.Logging;
 using Moq;
 using Xunit;
 
-namespace UnitTests
+namespace UnitTests.Api
 {
     public class HandlerUserTests
     {

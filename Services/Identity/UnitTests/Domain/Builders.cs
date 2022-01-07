@@ -1,6 +1,6 @@
 using Domain.Users;
 
-namespace UnitTests
+namespace UnitTests.Domain
 {
     public static class Builders
     {

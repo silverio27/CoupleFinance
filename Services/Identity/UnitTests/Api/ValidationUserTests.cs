@@ -1,12 +1,8 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 using Api.Users;
 using Xunit;
 using FluentValidation.TestHelper;
 
-namespace UnitTests
+namespace UnitTests.Api
 {
     public class ValidationUserTests
     {

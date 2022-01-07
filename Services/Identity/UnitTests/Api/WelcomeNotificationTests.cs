@@ -1,15 +1,11 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
 using Api.Users;
 using FluentEmail.Core;
-using MediatR;
 using Moq;
 using Xunit;
 
-namespace UnitTests
+namespace UnitTests.Api
 {
     public class WelcomeNotificationTests
     {
