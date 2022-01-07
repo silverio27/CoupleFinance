@@ -19,26 +19,25 @@ FNF:2
 FNH:0
 end_of_record
 SF:C:\work\personal\projects\CoupleFinance\Services\Identity\Api\Startup.cs
-FN:28,Microsoft.Extensions.Configuration.IConfiguration Api.Startup::get_Configuration()
+FN:29,Microsoft.Extensions.Configuration.IConfiguration Api.Startup::get_Configuration()
 FNDA:0,Microsoft.Extensions.Configuration.IConfiguration Api.Startup::get_Configuration()
-DA:29,0
-FN:32,System.Void Api.Startup::ConfigureServices(Microsoft.Extensions.DependencyInjection.IServiceCollection)
+DA:30,0
+FN:33,System.Void Api.Startup::ConfigureServices(Microsoft.Extensions.DependencyInjection.IServiceCollection)
 FNDA:0,System.Void Api.Startup::ConfigureServices(Microsoft.Extensions.DependencyInjection.IServiceCollection)
-DA:33,0
-DA:35,0
+DA:34,0
 DA:36,0
-DA:38,0
+DA:37,0
 DA:39,0
 DA:40,0
 DA:41,0
 DA:42,0
-DA:43,0
 DA:44,0
 DA:45,0
+DA:46,0
 DA:47,0
-FN:50,System.Void Api.Startup::Configure(Microsoft.AspNetCore.Builder.IApplicationBuilder,Microsoft.AspNetCore.Hosting.IWebHostEnvironment)
-FNDA:0,System.Void Api.Startup::Configure(Microsoft.AspNetCore.Builder.IApplicationBuilder,Microsoft.AspNetCore.Hosting.IWebHostEnvironment)
-DA:51,0
+DA:48,0
+DA:49,0
+DA:50,0
 DA:52,0
 DA:53,0
 DA:54,0
@@ -46,22 +45,32 @@ DA:55,0
 DA:56,0
 DA:57,0
 DA:59,0
-DA:61,0
+FN:62,System.Void Api.Startup::Configure(Microsoft.AspNetCore.Builder.IApplicationBuilder,Microsoft.AspNetCore.Hosting.IWebHostEnvironment)
+FNDA:0,System.Void Api.Startup::Configure(Microsoft.AspNetCore.Builder.IApplicationBuilder,Microsoft.AspNetCore.Hosting.IWebHostEnvironment)
 DA:63,0
+DA:64,0
 DA:65,0
 DA:66,0
 DA:67,0
 DA:68,0
 DA:69,0
-BRDA:52,9,0,0
-BRDA:52,9,1,0
-FN:23,System.Void Api.Startup::.ctor(Microsoft.Extensions.Configuration.IConfiguration)
+DA:71,0
+DA:73,0
+DA:75,0
+DA:77,0
+DA:78,0
+DA:79,0
+DA:80,0
+DA:81,0
+BRDA:64,9,0,0
+BRDA:64,9,1,0
+FN:24,System.Void Api.Startup::.ctor(Microsoft.Extensions.Configuration.IConfiguration)
 FNDA:0,System.Void Api.Startup::.ctor(Microsoft.Extensions.Configuration.IConfiguration)
-DA:24,0
 DA:25,0
 DA:26,0
 DA:27,0
-LF:32
+DA:28,0
+LF:41
 LH:0
 BRF:2
 BRH:0
@@ -134,35 +143,40 @@ FNF:2
 FNH:0
 end_of_record
 SF:C:\work\personal\projects\CoupleFinance\Services\Identity\Api\Users\WelcomeNotification.cs
-FN:18,System.String Api.Users.WelcomeNotification::get_Name()
-FNDA:1,System.String Api.Users.WelcomeNotification::get_Name()
-DA:19,1
-FN:19,System.String Api.Users.WelcomeNotification::get_Email()
-FNDA:1,System.String Api.Users.WelcomeNotification::get_Email()
-DA:20,1
-FN:12,System.Void Api.Users.WelcomeNotification::.ctor(System.String,System.String)
-FNDA:1,System.Void Api.Users.WelcomeNotification::.ctor(System.String,System.String)
-DA:13,1
-DA:14,1
-DA:15,1
-DA:16,1
-DA:17,1
-FN:25,System.Void Api.Users.SendWelcomeEmail/<Handle>d__0::MoveNext()
-FNDA:0,System.Void Api.Users.SendWelcomeEmail/<Handle>d__0::MoveNext()
-DA:26,0
-DA:27,0
-DA:28,0
-DA:29,0
-DA:30,0
-DA:31,0
-DA:32,0
-DA:33,0
-LF:15
-LH:7
+FN:20,System.String Api.Users.WelcomeNotification::get_Name()
+FNDA:3,System.String Api.Users.WelcomeNotification::get_Name()
+DA:21,3
+FN:21,System.String Api.Users.WelcomeNotification::get_Email()
+FNDA:3,System.String Api.Users.WelcomeNotification::get_Email()
+DA:22,3
+FN:14,System.Void Api.Users.WelcomeNotification::.ctor(System.String,System.String)
+FNDA:2,System.Void Api.Users.WelcomeNotification::.ctor(System.String,System.String)
+DA:15,2
+DA:16,2
+DA:17,2
+DA:18,2
+DA:19,2
+FN:27,System.Void Api.Users.SendWelcomeEmail::.ctor(FluentEmail.Core.IFluentEmail)
+FNDA:1,System.Void Api.Users.SendWelcomeEmail::.ctor(FluentEmail.Core.IFluentEmail)
+DA:28,1
+DA:29,1
+DA:30,1
+DA:31,1
+FN:32,System.Void Api.Users.SendWelcomeEmail/<Handle>d__2::MoveNext()
+FNDA:1,System.Void Api.Users.SendWelcomeEmail/<Handle>d__2::MoveNext()
+DA:33,1
+DA:34,1
+DA:35,1
+DA:36,1
+DA:37,1
+DA:38,1
+DA:39,1
+LF:18
+LH:18
 BRF:0
 BRH:0
-FNF:4
-FNH:3
+FNF:5
+FNH:5
 end_of_record
 SF:C:\work\personal\projects\CoupleFinance\Services\Identity\Api\SeedWork\Response.cs
 FN:11,System.String Api.SeedWork.Response::get_Message()
@@ -208,6 +222,20 @@ DA:24,0
 LF:9
 LH:0
 BRF:2
+BRH:0
+FNF:2
+FNH:0
+end_of_record
+SF:C:\work\personal\projects\CoupleFinance\Services\Identity\Api\Notifications\EmailSender.cs
+FN:9,System.String Api.Notifications.EmailSender::get_Email()
+FNDA:0,System.String Api.Notifications.EmailSender::get_Email()
+DA:10,0
+FN:10,System.String Api.Notifications.EmailSender::get_Password()
+FNDA:0,System.String Api.Notifications.EmailSender::get_Password()
+DA:11,0
+LF:2
+LH:0
+BRF:0
 BRH:0
 FNF:2
 FNH:0

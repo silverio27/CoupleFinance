@@ -22,8 +22,8 @@ namespace UnitTests
                 Name = "Lucas Silvério"
             };
             var repository = new Mock<IUsers>();
-            var logger = new Mock<ILogger<CreateUser>>(); 
-              var mediator = new Mock<IMediator>();
+            var logger = new Mock<ILogger<CreateUser>>();
+            var mediator = new Mock<IMediator>();
             var createUser = new CreateUser(repository.Object, mediator.Object, logger.Object);
             var result = await createUser.Handle(newUser, new System.Threading.CancellationToken());
             Assert.True(result.Success);
@@ -38,7 +38,7 @@ namespace UnitTests
                 Name = ""
             };
             var repository = new Mock<IUsers>();
-            var logger = new Mock<ILogger<CreateUser>>(); 
+            var logger = new Mock<ILogger<CreateUser>>();
             var mediator = new Mock<IMediator>();
             var createUser = new CreateUser(repository.Object, mediator.Object, logger.Object);
             var result = await createUser.Handle(newUser, new System.Threading.CancellationToken());
