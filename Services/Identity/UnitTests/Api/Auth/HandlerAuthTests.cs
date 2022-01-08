@@ -22,7 +22,7 @@ namespace UnitTests.Api.Auth
             var builder = new ConfigurationBuilder();
             builder.AddJsonFile("appsettings.json");
             _configuration = builder.Build();
-            _user =Builders.UserBuild();
+            _user = Builders.UserBuild();
         }
 
         [Fact]
@@ -35,14 +35,28 @@ namespace UnitTests.Api.Auth
             var result = await handler.Handle(_credential, default(CancellationToken));
 
             Assert.True(result.Success);
+
         }
 
         [Fact]
-        public async Task Auth_Bad()
+        public async Task Auth_when_user_provider_wrong_password()
+        {
+            _user.ChangePassword("t2tT@x00_@ERRO", "t2tT@x00_@ERRO");
+            _repository.Setup(x => x.Get(It.IsAny<string>())).ReturnsAsync(_user);
+
+            var handler = new Authenticate(_repository.Object, _configuration);
+            var result = await handler.Handle(_credential, default(CancellationToken));
+
+            Assert.False(result.Success);
+            Assert.Equal("A senha está incorreta.", result.Message);
+        }
+
+        [Fact]
+        public async Task Auth_When_User_Not_Found()
         {
             _user = null;
             _repository.Setup(x => x.Get(It.IsAny<string>())).ReturnsAsync(_user);
-            
+
             var handler = new Authenticate(_repository.Object, _configuration);
             var result = await handler.Handle(_credential, default(CancellationToken));
 
