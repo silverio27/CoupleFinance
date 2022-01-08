@@ -5,7 +5,7 @@ using FluentEmail.Core;
 using Moq;
 using Xunit;
 
-namespace UnitTests.Api
+namespace UnitTests.Api.Users
 {
     public class WelcomeNotificationTests
     {
@@ -20,13 +20,12 @@ namespace UnitTests.Api
             mockFluentEmail.Setup(m => m.Body(It.IsAny<string>(), false)).Returns(mockFluentEmail.Object);
 
             var fluentEmailService = new SendWelcomeEmail(mockFluentEmail.Object);
-
-            await fluentEmailService.Handle(new("Lucas Silverio", "silverio.des.vargas@gmail.com"), default(CancellationToken));
+            WelcomeNotification notification = new("Lucas Silverio", "silverio.des.vargas@gmail.com");
+            await fluentEmailService.Handle(notification, default(CancellationToken));
 
             mockFluentEmail.Verify(f => f.To("silverio.des.vargas@gmail.com"), Times.Once());
             mockFluentEmail.Verify(f => f.Subject("Bem vindo!"), Times.Once);
             mockFluentEmail.Verify(f => f.Body("Bem vindo Lucas Silverio", false), Times.Once);
-
             mockFluentEmail.Verify(f => f.SendAsync(null), Times.Once);
 
         }

@@ -8,7 +8,7 @@ namespace UnitTests.Domain
         User _user;
         public EntityUserTests()
         {
-            _user = Builders.Build();
+            _user = Builders.UserBuild();
         }
         [Fact]
         public void Create_User_Succefully()

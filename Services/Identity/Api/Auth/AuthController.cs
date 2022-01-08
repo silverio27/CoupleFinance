@@ -4,15 +4,15 @@ using Api.SeedWork;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
 
-namespace Api.Users
+namespace Api.Auth
 {
     [ApiController]
-    [Route("users")]
-    public class UserController : Controller
+    [Route("auth")]
+    public class AuthController : Controller
     {
         IMediator _mediator;
 
-        public UserController(IMediator mediator)
+        public AuthController(IMediator mediator)
         {
             _mediator = mediator;
         }
@@ -21,14 +21,13 @@ namespace Api.Users
         [ProducesResponseType(typeof(Response), (int)HttpStatusCode.OK)]
         [ProducesResponseType(typeof(Response), (int)HttpStatusCode.BadRequest)]
         [ProducesResponseType((int)HttpStatusCode.BadRequest)]
-        public async Task<ActionResult<Response>> Create(NewUser user)
+        public async Task<ActionResult<Response>> GetToken(Credential credential)
         {
-            var response = await _mediator.Send(user);
+            var response = await _mediator.Send(credential);
             if (!response.Success)
                 return BadRequest(response);
 
             return Ok(response);
         }
-
     }
 }

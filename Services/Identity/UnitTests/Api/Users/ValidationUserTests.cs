@@ -2,7 +2,7 @@ using Api.Users;
 using Xunit;
 using FluentValidation.TestHelper;
 
-namespace UnitTests.Api
+namespace UnitTests.Api.Users
 {
     public class ValidationUserTests
     {
