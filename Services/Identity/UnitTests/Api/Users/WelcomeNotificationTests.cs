@@ -2,31 +2,44 @@ using System.Threading;
 using System.Threading.Tasks;
 using Api.Users;
 using FluentEmail.Core;
+using Microsoft.Extensions.Configuration;
 using Moq;
 using Xunit;
+using Xunit.Abstractions;
 
 namespace UnitTests.Api.Users
 {
     public class WelcomeNotificationTests
     {
+
+        IConfigurationRoot _configuration;
+        public WelcomeNotificationTests()
+        {
+            var builder = new ConfigurationBuilder();
+            builder.AddJsonFile("appsettings.json");
+            _configuration = builder.Build();
+        }
+
         [Fact]
         public async Task Welcome_test_notification()
         {
 
-            var mockFluentEmail = new Mock<IFluentEmail>();
+            var configuration = new Mock<IConfiguration>();
 
-            mockFluentEmail.Setup(m => m.To(It.IsAny<string>())).Returns(mockFluentEmail.Object);
-            mockFluentEmail.Setup(m => m.Subject(It.IsAny<string>())).Returns(mockFluentEmail.Object);
-            mockFluentEmail.Setup(m => m.Body(It.IsAny<string>(), false)).Returns(mockFluentEmail.Object);
-
-            var fluentEmailService = new SendWelcomeEmail(mockFluentEmail.Object);
+            var fluentEmail = new Mock<IFluentEmail>();
+            fluentEmail.Setup(m => m.To(It.IsAny<string>())).Returns(fluentEmail.Object);
+            fluentEmail.Setup(m => m.Subject(It.IsAny<string>())).Returns(fluentEmail.Object);
+            fluentEmail.Setup(m => m.Body(It.IsAny<string>(), false)).Returns(fluentEmail.Object);
             WelcomeNotification notification = new("Lucas Silverio", "silverio.des.vargas@gmail.com");
-            await fluentEmailService.Handle(notification, default(CancellationToken));
 
-            mockFluentEmail.Verify(f => f.To("silverio.des.vargas@gmail.com"), Times.Once());
-            mockFluentEmail.Verify(f => f.Subject("Bem vindo!"), Times.Once);
-            mockFluentEmail.Verify(f => f.Body("Bem vindo Lucas Silverio", false), Times.Once);
-            mockFluentEmail.Verify(f => f.SendAsync(null), Times.Once);
+            var handler = new SendWelcomeEmail(fluentEmail.Object, _configuration);
+            await handler.Handle(notification, default(CancellationToken));
+            var body = $"Bem vindo Lucas Silverio, acesse o link: http://localhost:4200/identity/change-password/{handler.Token}";
+
+            fluentEmail.Verify(f => f.To("silverio.des.vargas@gmail.com"), Times.Once());
+            fluentEmail.Verify(f => f.Subject("Couple Finance"), Times.Once);
+            fluentEmail.Verify(f => f.Body(body, false), Times.Once);
+            fluentEmail.Verify(f => f.SendAsync(null), Times.Once);
 
         }
     }
