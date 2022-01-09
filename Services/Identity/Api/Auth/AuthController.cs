@@ -2,10 +2,12 @@ using System.Net;
 using System.Threading.Tasks;
 using Api.SeedWork;
 using MediatR;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Api.Auth
 {
+    [Authorize]
     [ApiController]
     [Route("auth")]
     public class AuthController : Controller
@@ -17,10 +19,10 @@ namespace Api.Auth
             _mediator = mediator;
         }
 
-        [HttpPost]
+        [HttpPost("sign-in")]
+        [AllowAnonymous]
         [ProducesResponseType(typeof(Response), (int)HttpStatusCode.OK)]
         [ProducesResponseType(typeof(Response), (int)HttpStatusCode.BadRequest)]
-        [ProducesResponseType((int)HttpStatusCode.BadRequest)]
         public async Task<ActionResult<Response>> GetToken(Credential credential)
         {
             var response = await _mediator.Send(credential);
@@ -29,5 +31,17 @@ namespace Api.Auth
 
             return Ok(response);
         }
+
+        [HttpPut("change-password")]
+        [ProducesResponseType(typeof(Response), (int)HttpStatusCode.OK)]
+        [ProducesResponseType(typeof(Response), (int)HttpStatusCode.BadRequest)]
+        public async Task<ActionResult<Response>> ChangePassword(NewPassword newPassword)
+        {
+            var response = await _mediator.Send(newPassword);
+            if (!response.Success)
+                return BadRequest(response);
+            return Ok(response);
+        }
+
     }
 }

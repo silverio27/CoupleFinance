@@ -6,7 +6,7 @@ namespace Domain.Users
 {
     public static class Password
     {
-        internal static (bool valid, string message) Validate(this string password)
+        public static (bool valid, string message) Validate(this string password)
         {
             StringBuilder message = new();
             var hasNumber = new Regex(@"[0-9]+");
@@ -44,7 +44,7 @@ namespace Domain.Users
             return (valid, message.ToString());
         }
 
-        public static string GenerateRandom()
+        internal static string GenerateRandom()
         {
             var generator = new Generator(letters: "ABCDEFGHIJKLMNOPQRSTUVWXYZ",
                                       numerics: "1234567890",
