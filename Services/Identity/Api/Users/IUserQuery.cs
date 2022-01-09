@@ -34,7 +34,7 @@ namespace Api.Users
 
         public async Task<Pagination<UserView>> Get(UserQueryParams queryParams)
         {
-            IQueryable<UserView> query = _context.User.Select(EntityToView());
+            IQueryable<UserView> query = _context.User.AsNoTracking().Select(EntityToView());
             var result = new Pagination<UserView>(query, queryParams.PageIndex, queryParams.PageSize);
             await result.ToListAsync();
             return result;
@@ -42,7 +42,7 @@ namespace Api.Users
 
         public async Task<UserView> Get(Guid id)
         {
-            return await _context.User.Select(EntityToView()).FirstOrDefaultAsync(x => x.Id == id);
+            return await _context.User.AsNoTracking().Select(EntityToView()).FirstOrDefaultAsync(x => x.Id == id);
         }
 
         private static Expression<Func<User, UserView>> EntityToView()
