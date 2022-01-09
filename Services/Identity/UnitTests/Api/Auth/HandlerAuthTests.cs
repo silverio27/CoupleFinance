@@ -12,16 +12,15 @@ namespace UnitTests.Api.Auth
     {
         Credential _credential;
         Mock<IUsers> _repository;
-        IConfigurationRoot _configuration;
+        IConfiguration _configuration;
         User _user;
 
         public HandlerAuthTests()
         {
             _credential = new Credential("silverio.des.vargas@gmail.com", "t2tT@x00_@");
             _repository = new Mock<IUsers>();
-            var builder = new ConfigurationBuilder();
-            builder.AddJsonFile("appsettings.json");
-            _configuration = builder.Build();
+
+            _configuration = Builders.ConfigurationBuilder();
             _user = Builders.UserBuild();
         }
 

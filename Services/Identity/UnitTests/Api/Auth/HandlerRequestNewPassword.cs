@@ -16,22 +16,15 @@ namespace UnitTests.Api.Auth
     {
         Mock<IUsers> _users;
         Mock<IFluentEmail> _email;
-        IConfigurationRoot _configuration;
+        IConfiguration _configuration;
         User _user;
         public HandlerRequestNewPassword()
         {
             _users = new();
-            _email = new();
 
             _user = Builders.UserBuild();
-
-            var builder = new ConfigurationBuilder();
-            builder.AddJsonFile("appsettings.json");
-            _configuration = builder.Build();
-
-            _email.Setup(m => m.To(It.IsAny<string>())).Returns(_email.Object);
-            _email.Setup(m => m.Subject(It.IsAny<string>())).Returns(_email.Object);
-            _email.Setup(m => m.Body(It.IsAny<string>(), false)).Returns(_email.Object);
+            _configuration = Builders.ConfigurationBuilder();
+            _email = Builders.EmailServiceBuilder();
         }
 
         [Fact]
