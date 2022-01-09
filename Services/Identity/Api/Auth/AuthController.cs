@@ -30,6 +30,19 @@ namespace Api.Auth
                 return BadRequest(response);
 
             return Ok(response);
+        
+        }
+        [HttpPost("recovery-password")]
+        [AllowAnonymous]
+        [ProducesResponseType(typeof(Response), (int)HttpStatusCode.OK)]
+        [ProducesResponseType(typeof(Response), (int)HttpStatusCode.BadRequest)]
+        public async Task<ActionResult<Response>> RecoveryPassword(UserRequestNewPassword requestNewPassword)
+        {
+            var response = await _mediator.Send(requestNewPassword);
+            if (!response.Success)
+                return BadRequest(response);
+
+            return Ok(response);
         }
 
         [HttpPut("change-password")]
