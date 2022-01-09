@@ -1,24 +1,31 @@
 using System;
+using System.Collections.Generic;
+using Domain.SeedWork;
 
 namespace Domain.Users
 {
-    public class User
+    public class User : Entity, IAggregateRoot
     {
-        public Guid Id { get; private set; }
         public string Name { get; private set; }
         public string Email { get; private set; }
         public string Password { get; private set; }
         public bool Active { get; private set; }
-        public User(string name, string email)
+        private List<History> _history;
+        public IEnumerable<History> History => _history.AsReadOnly();
+
+        public User(string name, string email) : this()
         {
-            Id = Guid.NewGuid();
             ChangeName(name);
             ChangeEmail(email);
             var randomPassword = Users.Password.GenerateRandom();
             ChangePassword(randomPassword, randomPassword);
             Activate();
         }
-        protected User() { }
+        protected User()
+        {
+            _history = new();
+
+        }
 
         public void ChangeName(string name)
         {
@@ -49,8 +56,15 @@ namespace Domain.Users
         {
             return BCrypt.Net.BCrypt.Verify(password, Password);
         }
-        public void Activate() => Active = true;
-        public void Disable() => Active = false;
+        public void Activate()
+        {
+            Active = true;
+        }
+        public void Disable(string cause)
+        {
+            Active = false;
+            _history.Add(new(cause));
+        }
 
     }
 }

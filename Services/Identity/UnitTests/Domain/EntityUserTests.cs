@@ -76,8 +76,9 @@ namespace UnitTests.Domain
         [Fact]
         public void Disable_User()
         {
-            _user.Disable();
+            _user.Disable("Falta de pagamento.");
             Assert.False(_user.Active);
+            Assert.NotEmpty(_user.History);
         }
     }
 }
