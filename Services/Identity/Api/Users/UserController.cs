@@ -3,10 +3,12 @@ using System.Net;
 using System.Threading.Tasks;
 using Api.SeedWork;
 using MediatR;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Api.Users
 {
+    [Authorize]
     [ApiController]
     [Route("users")]
     public class UserController : Controller
