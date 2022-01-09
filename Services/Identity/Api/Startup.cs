@@ -35,11 +35,22 @@ namespace Api
                 .AddFluentValidation(x => x.RegisterValidatorsFromAssemblyContaining<Startup>());
 
             services.AddDbContext<UserContext>(x => x.UseSqlServer(Configuration.GetConnectionString("UserContext")));
+            ConfigureCqrs(services);
+            ConfigureEmailService(services);
+            ConfigureJwt(services);
+            ConfigureSwagger(services);
+
+        }
+
+        private static void ConfigureCqrs(IServiceCollection services)
+        {
             services.AddTransient<IUsers, Infra.Users>();
             services.AddTransient<IUsersQuery, UsersQuery>();
             services.AddMediatR(typeof(Startup));
+        }
 
-
+        private void ConfigureEmailService(IServiceCollection services)
+        {
             SmtpClient client = new SmtpClient
             {
                 Host = "smtp.gmail.com",
@@ -50,7 +61,10 @@ namespace Api
 
             services.AddFluentEmail("noreplysharefinance@gmail.com")
                 .AddSmtpSender(client);
+        }
 
+        private void ConfigureJwt(IServiceCollection services)
+        {
             var key = Encoding.ASCII.GetBytes(Configuration["Auth:Secret"]);
             services.AddAuthentication(x =>
             {
@@ -68,19 +82,23 @@ namespace Api
                     ValidateAudience = false
                 };
             });
+        }
+
+        private static void ConfigureSwagger(IServiceCollection services)
+        {
             services.AddSwaggerGen(c =>
-             {
-                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "Couple Finance - Identidade e acesso", Version = "v1" });
-                 c.AddSecurityDefinition("Bearer", new OpenApiSecurityScheme()
-                 {
-                     Name = "Authorization",
-                     Type = SecuritySchemeType.ApiKey,
-                     Scheme = "Bearer",
-                     BearerFormat = "JWT",
-                     In = ParameterLocation.Header,
-                     Description = "Enter 'Bearer' [space] and then your valid token in the text input below.\r\n\r\nExample: \"Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9\"",
-                 });
-                 c.AddSecurityRequirement(new OpenApiSecurityRequirement
+            {
+                c.SwaggerDoc("v1", new OpenApiInfo { Title = "Couple Finance - Identidade e acesso", Version = "v1" });
+                c.AddSecurityDefinition("Bearer", new OpenApiSecurityScheme()
+                {
+                    Name = "Authorization",
+                    Type = SecuritySchemeType.ApiKey,
+                    Scheme = "Bearer",
+                    BearerFormat = "JWT",
+                    In = ParameterLocation.Header,
+                    Description = "Enter 'Bearer' [space] and then your valid token in the text input below.\r\n\r\nExample: \"Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9\"",
+                });
+                c.AddSecurityRequirement(new OpenApiSecurityRequirement
                  {
                     {
                           new OpenApiSecurityScheme
@@ -95,9 +113,10 @@ namespace Api
 
                     }
                  });
-             });
-
+            });
         }
+
+
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
