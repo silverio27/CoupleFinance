@@ -20,7 +20,10 @@ namespace Api.Users
         public NewUserValidation()
         {
             RuleFor(x => x.Name).NotEmpty().WithMessage("O nome do usuário não pode ser vazio");
+            RuleFor(x => x.Name).MaximumLength(100).WithMessage("O nome  não pode ter mais de 100 caracteres.");
+            
             RuleFor(x => x.Email).NotEmpty().WithMessage("O email não pode ser vazio");
+            RuleFor(x => x.Email).MaximumLength(100).WithMessage("O email não pode ter mais de 100 caracteres.");
         }
     }
 

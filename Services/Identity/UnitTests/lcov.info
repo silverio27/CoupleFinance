@@ -191,40 +191,42 @@ FNH:0
 end_of_record
 SF:C:\work\personal\projects\CoupleFinance\Services\Identity\Api\Users\NewUser.cs
 FN:13,System.String Api.Users.NewUser::get_Name()
-FNDA:8,System.String Api.Users.NewUser::get_Name()
-DA:14,8
+FNDA:10,System.String Api.Users.NewUser::get_Name()
+DA:14,10
 FN:14,System.String Api.Users.NewUser::get_Email()
-FNDA:8,System.String Api.Users.NewUser::get_Email()
-DA:15,8
+FNDA:10,System.String Api.Users.NewUser::get_Email()
+DA:15,10
 FN:19,System.Void Api.Users.NewUserValidation::.ctor()
 FNDA:2,System.Void Api.Users.NewUserValidation::.ctor()
 DA:20,2
 DA:21,2
 DA:22,2
 DA:23,2
-DA:24,2
-FN:31,System.Void Api.Users.CreateUser::.ctor(Domain.Users.IUsers,MediatR.IMediator,Microsoft.Extensions.Logging.ILogger`1<Api.Users.CreateUser>)
+DA:25,2
+DA:26,2
+DA:27,2
+FN:34,System.Void Api.Users.CreateUser::.ctor(Domain.Users.IUsers,MediatR.IMediator,Microsoft.Extensions.Logging.ILogger`1<Api.Users.CreateUser>)
 FNDA:2,System.Void Api.Users.CreateUser::.ctor(Domain.Users.IUsers,MediatR.IMediator,Microsoft.Extensions.Logging.ILogger`1<Api.Users.CreateUser>)
-DA:32,2
-DA:33,2
-DA:34,2
 DA:35,2
 DA:36,2
 DA:37,2
-FN:38,System.Void Api.Users.CreateUser/<Handle>d__4::MoveNext()
-FNDA:2,System.Void Api.Users.CreateUser/<Handle>d__4::MoveNext()
+DA:38,2
 DA:39,2
-DA:41,2
+DA:40,2
+FN:41,System.Void Api.Users.CreateUser/<Handle>d__4::MoveNext()
+FNDA:2,System.Void Api.Users.CreateUser/<Handle>d__4::MoveNext()
 DA:42,2
-DA:43,1
-DA:44,1
-DA:45,1
+DA:44,2
+DA:45,2
+DA:46,1
 DA:47,1
 DA:48,1
 DA:50,1
-DA:53,2
-LF:23
-LH:23
+DA:51,1
+DA:53,1
+DA:56,2
+LF:25
+LH:25
 BRF:0
 BRH:0
 FNF:5
@@ -232,8 +234,8 @@ FNH:5
 end_of_record
 SF:C:\work\personal\projects\CoupleFinance\Services\Identity\Api\Users\UpdateUser.cs
 FN:12,System.Guid Api.Users.UpdateUser::get_Id()
-FNDA:26,System.Guid Api.Users.UpdateUser::get_Id()
-DA:13,26
+FNDA:30,System.Guid Api.Users.UpdateUser::get_Id()
+DA:13,30
 FN:15,System.Void Api.Users.UpdateUserValidator::.ctor()
 FNDA:2,System.Void Api.Users.UpdateUserValidator::.ctor()
 DA:16,2
@@ -242,31 +244,33 @@ DA:18,2
 DA:19,2
 DA:20,2
 DA:21,2
-FN:27,System.Void Api.Users.ChangeUser::.ctor(Domain.Users.IUsers)
+DA:22,2
+DA:23,2
+FN:29,System.Void Api.Users.ChangeUser::.ctor(Domain.Users.IUsers)
 FNDA:2,System.Void Api.Users.ChangeUser::.ctor(Domain.Users.IUsers)
-DA:28,2
-DA:29,2
 DA:30,2
 DA:31,2
-FN:33,System.Void Api.Users.ChangeUser/<Handle>d__2::MoveNext()
+DA:32,2
+DA:33,2
+FN:35,System.Void Api.Users.ChangeUser/<Handle>d__2::MoveNext()
 FNDA:2,System.Void Api.Users.ChangeUser/<Handle>d__2::MoveNext()
-DA:34,2
 DA:36,2
-DA:37,2
 DA:38,2
-DA:39,1
+DA:39,2
+DA:40,2
 DA:41,1
-DA:42,1
 DA:43,1
 DA:44,1
-DA:46,0
-DA:47,0
+DA:45,1
+DA:46,1
 DA:48,0
-DA:50,2
-BRDA:38,190,0,1
-BRDA:38,190,1,1
-LF:24
-LH:21
+DA:49,0
+DA:50,0
+DA:52,2
+BRDA:40,190,0,1
+BRDA:40,190,1,1
+LF:26
+LH:23
 BRF:2
 BRH:2
 FNF:4
@@ -841,16 +845,22 @@ SF:C:\work\personal\projects\CoupleFinance\Services\Identity\Infra\UserContext.c
 FN:7,Microsoft.EntityFrameworkCore.DbSet`1<Domain.Users.User> Infra.UserContext::get_User()
 FNDA:0,Microsoft.EntityFrameworkCore.DbSet`1<Domain.Users.User> Infra.UserContext::get_User()
 DA:8,0
+FN:12,System.Void Infra.UserContext::OnModelCreating(Microsoft.EntityFrameworkCore.ModelBuilder)
+FNDA:0,System.Void Infra.UserContext::OnModelCreating(Microsoft.EntityFrameworkCore.ModelBuilder)
+DA:13,0
+DA:14,0
+DA:15,0
+DA:16,0
 FN:8,System.Void Infra.UserContext::.ctor(Microsoft.EntityFrameworkCore.DbContextOptions)
 FNDA:0,System.Void Infra.UserContext::.ctor(Microsoft.EntityFrameworkCore.DbContextOptions)
 DA:9,0
 DA:10,0
 DA:11,0
-LF:4
+LF:8
 LH:0
 BRF:0
 BRH:0
-FNF:2
+FNF:3
 FNH:0
 end_of_record
 SF:C:\work\personal\projects\CoupleFinance\Services\Identity\Infra\Users.cs
