@@ -230,6 +230,48 @@ BRH:0
 FNF:5
 FNH:5
 end_of_record
+SF:C:\work\personal\projects\CoupleFinance\Services\Identity\Api\Users\UpdateUser.cs
+FN:12,System.Guid Api.Users.UpdateUser::get_Id()
+FNDA:26,System.Guid Api.Users.UpdateUser::get_Id()
+DA:13,26
+FN:15,System.Void Api.Users.UpdateUserValidator::.ctor()
+FNDA:2,System.Void Api.Users.UpdateUserValidator::.ctor()
+DA:16,2
+DA:17,2
+DA:18,2
+DA:19,2
+DA:20,2
+DA:21,2
+FN:27,System.Void Api.Users.ChangeUser::.ctor(Domain.Users.IUsers)
+FNDA:2,System.Void Api.Users.ChangeUser::.ctor(Domain.Users.IUsers)
+DA:28,2
+DA:29,2
+DA:30,2
+DA:31,2
+FN:33,System.Void Api.Users.ChangeUser/<Handle>d__2::MoveNext()
+FNDA:2,System.Void Api.Users.ChangeUser/<Handle>d__2::MoveNext()
+DA:34,2
+DA:36,2
+DA:37,2
+DA:38,2
+DA:39,1
+DA:41,1
+DA:42,1
+DA:43,1
+DA:44,1
+DA:46,0
+DA:47,0
+DA:48,0
+DA:50,2
+BRDA:38,190,0,1
+BRDA:38,190,1,1
+LF:24
+LH:21
+BRF:2
+BRH:2
+FNF:4
+FNH:4
+end_of_record
 SF:C:\work\personal\projects\CoupleFinance\Services\Identity\Api\Users\UserController.cs
 FN:18,System.Void Api.Users.UserController::.ctor(MediatR.IMediator,Api.Users.IUsersQuery)
 FNDA:2,System.Void Api.Users.UserController::.ctor(MediatR.IMediator,Api.Users.IUsersQuery)
@@ -258,11 +300,21 @@ DA:47,1
 DA:48,2
 BRDA:44,179,0,1
 BRDA:44,179,1,1
-LF:17
+FN:53,System.Void Api.Users.UserController/<Update>d__6::MoveNext()
+FNDA:0,System.Void Api.Users.UserController/<Update>d__6::MoveNext()
+DA:54,0
+DA:55,0
+DA:56,0
+DA:57,0
+DA:59,0
+DA:60,0
+BRDA:56,179,0,0
+BRDA:56,179,1,0
+LF:23
 LH:11
-BRF:2
+BRF:4
 BRH:2
-FNF:4
+FNF:5
 FNH:2
 end_of_record
 SF:C:\work\personal\projects\CoupleFinance\Services\Identity\Api\Users\WelcomeNotification.cs
@@ -383,22 +435,22 @@ FNH:0
 end_of_record
 SF:C:\work\personal\projects\CoupleFinance\Services\Identity\Api\SeedWork\Response.cs
 FN:11,System.String Api.SeedWork.Response::get_Message()
-FNDA:15,System.String Api.SeedWork.Response::get_Message()
-DA:12,15
+FNDA:19,System.String Api.SeedWork.Response::get_Message()
+DA:12,19
 FN:12,System.Boolean Api.SeedWork.Response::get_Success()
-FNDA:22,System.Boolean Api.SeedWork.Response::get_Success()
-DA:13,22
+FNDA:26,System.Boolean Api.SeedWork.Response::get_Success()
+DA:13,26
 FN:13,System.Object Api.SeedWork.Response::get_Data()
-FNDA:11,System.Object Api.SeedWork.Response::get_Data()
-DA:14,11
+FNDA:13,System.Object Api.SeedWork.Response::get_Data()
+DA:14,13
 FN:4,System.Void Api.SeedWork.Response::.ctor(System.String,System.Boolean,System.Object)
-FNDA:11,System.Void Api.SeedWork.Response::.ctor(System.String,System.Boolean,System.Object)
-DA:5,11
-DA:6,11
-DA:7,11
-DA:8,11
-DA:9,11
-DA:10,11
+FNDA:13,System.Void Api.SeedWork.Response::.ctor(System.String,System.Boolean,System.Object)
+DA:5,13
+DA:6,13
+DA:7,13
+DA:8,13
+DA:9,13
+DA:10,13
 LF:9
 LH:9
 BRF:0
@@ -538,12 +590,13 @@ DA:33,2
 DA:34,2
 DA:35,2
 DA:36,1
-DA:38,1
+DA:37,1
 DA:39,1
-DA:41,1
-DA:43,2
-LF:20
-LH:20
+DA:40,1
+DA:42,1
+DA:44,2
+LF:21
+LH:21
 BRF:0
 BRH:0
 FNF:4
@@ -622,64 +675,64 @@ FNH:1
 end_of_record
 SF:C:\work\personal\projects\CoupleFinance\Services\Identity\Domain\Users\Password.cs
 FN:9,System.ValueTuple`2<System.Boolean,System.String> Domain.Users.Password::Validate(System.String)
-FNDA:24,System.ValueTuple`2<System.Boolean,System.String> Domain.Users.Password::Validate(System.String)
-DA:10,24
-DA:11,24
-DA:12,24
-DA:13,24
-DA:14,24
-DA:15,24
-DA:16,24
-DA:17,24
-DA:18,24
+FNDA:26,System.ValueTuple`2<System.Boolean,System.String> Domain.Users.Password::Validate(System.String)
+DA:10,26
+DA:11,26
+DA:12,26
+DA:13,26
+DA:14,26
+DA:15,26
+DA:16,26
+DA:17,26
+DA:18,26
 DA:19,3
 DA:20,3
 DA:21,3
 DA:22,3
-DA:23,24
+DA:23,26
 DA:24,2
 DA:25,2
 DA:26,2
 DA:27,2
-DA:28,24
+DA:28,26
 DA:29,2
 DA:30,2
 DA:31,2
 DA:32,2
-DA:33,24
+DA:33,26
 DA:34,2
 DA:35,2
 DA:36,2
 DA:37,2
-DA:38,24
+DA:38,26
 DA:39,3
 DA:40,3
 DA:41,3
 DA:42,3
-DA:44,24
-DA:45,24
+DA:44,26
+DA:45,26
 BRDA:18,81,0,3
-BRDA:18,81,1,24
+BRDA:18,81,1,26
 BRDA:23,114,0,2
-BRDA:23,114,1,24
+BRDA:23,114,1,26
 BRDA:28,147,0,2
-BRDA:28,147,1,24
+BRDA:28,147,1,26
 BRDA:33,181,0,2
-BRDA:33,181,1,24
+BRDA:33,181,1,26
 BRDA:38,215,0,3
-BRDA:38,215,1,24
+BRDA:38,215,1,26
 FN:47,System.String Domain.Users.Password::GenerateRandom()
-FNDA:16,System.String Domain.Users.Password::GenerateRandom()
-DA:48,16
-DA:49,16
-DA:50,16
-DA:51,16
-DA:53,16
-DA:54,16
-DA:55,16
-DA:56,16
-DA:57,16
-DA:58,16
+FNDA:18,System.String Domain.Users.Password::GenerateRandom()
+DA:48,18
+DA:49,18
+DA:50,18
+DA:51,18
+DA:53,18
+DA:54,18
+DA:55,18
+DA:56,18
+DA:57,18
+DA:58,18
 LF:45
 LH:45
 BRF:10
@@ -689,103 +742,99 @@ FNH:2
 end_of_record
 SF:C:\work\personal\projects\CoupleFinance\Services\Identity\Domain\Users\User.cs
 FN:6,System.Guid Domain.Users.User::get_Id()
-FNDA:20,System.Guid Domain.Users.User::get_Id()
-DA:7,20
+FNDA:22,System.Guid Domain.Users.User::get_Id()
+DA:7,22
 FN:7,System.String Domain.Users.User::get_Name()
-FNDA:19,System.String Domain.Users.User::get_Name()
-DA:8,19
+FNDA:22,System.String Domain.Users.User::get_Name()
+DA:8,22
 FN:8,System.String Domain.Users.User::get_Email()
-FNDA:19,System.String Domain.Users.User::get_Email()
-DA:9,19
+FNDA:22,System.String Domain.Users.User::get_Email()
+DA:9,22
 FN:9,System.String Domain.Users.User::get_Password()
-FNDA:23,System.String Domain.Users.User::get_Password()
-DA:10,23
+FNDA:25,System.String Domain.Users.User::get_Password()
+DA:10,25
 FN:10,System.Boolean Domain.Users.User::get_Active()
-FNDA:19,System.Boolean Domain.Users.User::get_Active()
-DA:11,19
-FN:22,System.Void Domain.Users.User::ChangeName(System.String)
-FNDA:19,System.Void Domain.Users.User::ChangeName(System.String)
-DA:23,19
-DA:24,19
-DA:25,2
-DA:26,17
-DA:27,17
-BRDA:24,9,0,2
-BRDA:24,9,1,17
-FN:28,System.Void Domain.Users.User::ChangeEmail(System.String)
-FNDA:17,System.Void Domain.Users.User::ChangeEmail(System.String)
-DA:29,17
-DA:30,17
-DA:31,1
-DA:32,16
-DA:33,16
-BRDA:30,9,0,1
-BRDA:30,9,1,16
-FN:34,System.Void Domain.Users.User::ChangePassword(System.String,System.String)
-FNDA:23,System.Void Domain.Users.User::ChangePassword(System.String,System.String)
-DA:35,23
-DA:36,23
-DA:37,1
-DA:39,22
-DA:40,1
-DA:42,21
-DA:43,21
-DA:44,1
-DA:45,20
-DA:46,20
-BRDA:36,7,0,22
-BRDA:36,7,1,1
-BRDA:36,20,0,1
-BRDA:36,20,1,22
-BRDA:39,42,0,1
-BRDA:39,42,1,21
-BRDA:43,73,0,1
-BRDA:43,73,1,20
-FN:47,System.Boolean Domain.Users.User::VerifyPassword(System.String)
+FNDA:21,System.Boolean Domain.Users.User::get_Active()
+DA:11,21
+FN:23,System.Void Domain.Users.User::ChangeName(System.String)
+FNDA:22,System.Void Domain.Users.User::ChangeName(System.String)
+DA:24,22
+DA:25,22
+DA:26,2
+DA:27,20
+DA:28,20
+BRDA:25,9,0,2
+BRDA:25,9,1,20
+FN:29,System.Void Domain.Users.User::ChangeEmail(System.String)
+FNDA:20,System.Void Domain.Users.User::ChangeEmail(System.String)
+DA:30,20
+DA:31,20
+DA:32,1
+DA:33,19
+DA:34,19
+BRDA:31,9,0,1
+BRDA:31,9,1,19
+FN:35,System.Void Domain.Users.User::ChangePassword(System.String,System.String)
+FNDA:25,System.Void Domain.Users.User::ChangePassword(System.String,System.String)
+DA:36,25
+DA:37,25
+DA:38,1
+DA:40,24
+DA:41,1
+DA:43,23
+DA:44,23
+DA:45,1
+DA:46,22
+DA:47,22
+BRDA:37,7,0,24
+BRDA:37,7,1,1
+BRDA:37,20,0,1
+BRDA:37,20,1,24
+BRDA:40,42,0,1
+BRDA:40,42,1,23
+BRDA:44,73,0,1
+BRDA:44,73,1,22
+FN:48,System.Boolean Domain.Users.User::VerifyPassword(System.String)
 FNDA:3,System.Boolean Domain.Users.User::VerifyPassword(System.String)
-DA:48,3
 DA:49,3
 DA:50,3
-FN:50,System.Void Domain.Users.User::Activate()
-FNDA:16,System.Void Domain.Users.User::Activate()
-DA:51,16
-FN:51,System.Void Domain.Users.User::Disable()
+DA:51,3
+FN:51,System.Void Domain.Users.User::Activate()
+FNDA:18,System.Void Domain.Users.User::Activate()
+DA:52,18
+FN:52,System.Void Domain.Users.User::Disable()
 FNDA:1,System.Void Domain.Users.User::Disable()
-DA:52,1
+DA:53,1
 FN:11,System.Void Domain.Users.User::.ctor(System.String,System.String)
-FNDA:19,System.Void Domain.Users.User::.ctor(System.String,System.String)
-DA:12,19
-DA:13,19
-DA:14,19
-DA:15,19
-DA:16,17
-DA:17,16
-DA:18,16
-DA:19,16
-DA:20,16
-LF:39
+FNDA:21,System.Void Domain.Users.User::.ctor(System.String,System.String)
+DA:12,21
+DA:13,21
+DA:14,21
+DA:15,21
+DA:16,19
+DA:17,18
+DA:18,18
+DA:19,18
+DA:20,18
+FN:20,System.Void Domain.Users.User::.ctor()
+FNDA:0,System.Void Domain.Users.User::.ctor()
+DA:21,0
+LF:40
 LH:39
 BRF:12
 BRH:12
-FNF:12
+FNF:13
 FNH:12
 end_of_record
 SF:C:\work\personal\projects\CoupleFinance\Services\Identity\Domain\Users\UserException.cs
-FN:6,System.Void Domain.Users.UserException::.ctor()
-FNDA:0,System.Void Domain.Users.UserException::.ctor()
-DA:7,0
-DA:8,0
-DA:9,0
-FN:10,System.Void Domain.Users.UserException::.ctor(System.String)
-FNDA:6,System.Void Domain.Users.UserException::.ctor(System.String)
-DA:11,6
-DA:12,6
-DA:13,6
-LF:6
-LH:3
+FN:6,System.Void Domain.Users.UserException::.ctor(System.String)
+FNDA:18,System.Void Domain.Users.UserException::.ctor(System.String)
+DA:7,18
+LF:1
+LH:1
 BRF:0
 BRH:0
-FNF:2
+FNF:1
 FNH:1
 end_of_record
 SF:C:\work\personal\projects\CoupleFinance\Services\Identity\Infra\UserContext.cs

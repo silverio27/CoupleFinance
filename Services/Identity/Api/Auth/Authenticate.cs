@@ -32,7 +32,7 @@ namespace Api.Auth
             var user = await _users.Get(request.Email);
             if (user is null)
                 return new("Não existe um usuário com esse email", false);
-
+                
             if (!user.VerifyPassword(request.Password))
                 return new("A senha está incorreta.", false);
 

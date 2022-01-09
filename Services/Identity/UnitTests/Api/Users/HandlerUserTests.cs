@@ -32,6 +32,7 @@ namespace UnitTests.Api.Users
             var createUser = new CreateUser(_repository.Object, _mediator.Object, _logger.Object);
             var result = await createUser.Handle(newUser, default(CancellationToken));
             Assert.True(result.Success);
+            _repository.Verify(x => x.Create(It.IsAny<User>()), Times.Once);
         }
 
         [Fact]

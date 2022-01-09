@@ -28,8 +28,9 @@ namespace UnitTests.Api.Auth
             var handler = new ChangePassword(_users.Object);
             var response = await handler.Handle(newPassword, default(CancellationToken));
             Assert.True(response.Success);
+            _users.Verify(x => x.Update(It.IsAny<User>()), Times.Once);
         }
-        
+
         [Fact]
         public async Task Change_Password_Failed()
         {
@@ -39,6 +40,8 @@ namespace UnitTests.Api.Auth
             var handler = new ChangePassword(_users.Object);
             var response = await handler.Handle(newPassword, default(CancellationToken));
             Assert.False(response.Success);
+
+
         }
     }
 }

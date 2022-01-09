@@ -47,5 +47,17 @@ namespace Api.Users
             return Ok(response);
         }
 
+        [HttpPut]
+        [ProducesResponseType(typeof(Response), (int)HttpStatusCode.OK)]
+        [ProducesResponseType(typeof(Response), (int)HttpStatusCode.BadRequest)]
+        public async Task<ActionResult<Response>> Update(UpdateUser user)
+        {
+            var response = await _mediator.Send(user);
+            if (!response.Success)
+                return BadRequest(response);
+
+            return Ok(response);
+        }
+
     }
 }

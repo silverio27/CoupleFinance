@@ -18,6 +18,7 @@ namespace Domain.Users
             ChangePassword(randomPassword, randomPassword);
             Activate();
         }
+        protected User() { }
 
         public void ChangeName(string name)
         {

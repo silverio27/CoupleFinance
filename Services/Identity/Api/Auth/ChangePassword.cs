@@ -33,6 +33,7 @@ namespace Api.Auth
             {
                 var user = await _users.Get(request.Email);
                 user.ChangePassword(request.Password, request.ConfirmPassword);
+                await _users.Update(user);
                 return new("Senha alterada");
             }
             catch (System.Exception e)
