@@ -1,21 +1,16 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Net.Mail;
-using System.Threading.Tasks;
 using Api.SeedWork;
+using Api.Users;
 using Domain.Users;
 using FluentValidation.AspNetCore;
 using Infra;
 using MediatR;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.HttpsPolicy;
-using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using Microsoft.Extensions.Logging;
 using Microsoft.OpenApi.Models;
 
 namespace Api
@@ -36,10 +31,11 @@ namespace Api
             services.AddControllers((x) => x.Filters.Add(typeof(ValidationActionFilter)))
                 .AddFluentValidation(x => x.RegisterValidatorsFromAssemblyContaining<Startup>());
             
-            services.AddCosmosRepository();
-            services.AddSingleton<IUsers, Infra.Users>();
-            services.AddAutoMapper(x=>x.AddProfile(new UserProfile()));
+            services.AddDbContext<UserContext>(x=>x.UseSqlServer(Configuration.GetConnectionString("UserContext")));
+            services.AddTransient<IUsers, Infra.Users>();
+            services.AddTransient<IUsersQuery, UsersQuery>();
             services.AddMediatR(typeof(Startup));
+
             
             SmtpClient client = new SmtpClient
             {

@@ -6,15 +6,19 @@ using MediatR;
 using Moq;
 using Xunit;
 using Microsoft.AspNetCore.Mvc;
+using AutoMapper;
+using Domain.Users;
 
 namespace UnitTests.Api.Users
 {
     public class ControllerUserTests
     {
         Mock<IMediator> _mediator;
+        Mock<IUsersQuery> _query;
         public ControllerUserTests()
         {
             _mediator = new Mock<IMediator>();
+            _query = new Mock<IUsersQuery>();
         }
 
         [Fact]
@@ -23,7 +27,7 @@ namespace UnitTests.Api.Users
             _mediator.Setup(x => x.Send(It.IsAny<NewUser>(), default(CancellationToken)))
                   .ReturnsAsync(new Response("Usuário criado"));
 
-            var controller = new UserController(_mediator.Object);
+            var controller = new UserController(_mediator.Object, _query.Object);
             var result = await controller.Create(It.IsAny<NewUser>());
             var objectResult = (result.Result as ObjectResult);
 
@@ -38,7 +42,7 @@ namespace UnitTests.Api.Users
             _mediator.Setup(x => x.Send(It.IsAny<NewUser>(), default(CancellationToken)))
                   .ReturnsAsync(new Response("Não foi possível criar o usuário", false));
 
-            var controller = new UserController(_mediator.Object);
+            var controller = new UserController(_mediator.Object, _query.Object);
             var result = await controller.Create(It.IsAny<NewUser>());
             var objectResult = (result.Result as ObjectResult);
 

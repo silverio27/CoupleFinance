@@ -1,3 +1,4 @@
+using System;
 using System.Net;
 using System.Threading.Tasks;
 using Api.SeedWork;
@@ -11,10 +12,24 @@ namespace Api.Users
     public class UserController : Controller
     {
         IMediator _mediator;
+        IUsersQuery _query;
 
-        public UserController(IMediator mediator)
+        public UserController(IMediator mediator, IUsersQuery query)
         {
             _mediator = mediator;
+            _query = query;
+        }
+
+        [HttpGet("{id}")]
+        public async Task<ActionResult<UserView>> Get(Guid id)
+        {
+            return await _query.Get(id);
+        }
+
+        [HttpGet]
+        public async Task<ActionResult<Pagination<UserView>>> Get([FromQuery] UserQueryParams queryParams)
+        {
+            return await _query.Get(queryParams);
         }
 
         [HttpPost]

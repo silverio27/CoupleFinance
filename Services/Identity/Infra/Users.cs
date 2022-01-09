@@ -1,51 +1,44 @@
 using System;
-using System.Linq;
 using System.Threading.Tasks;
-using AutoMapper;
 using Domain.Users;
-using Microsoft.Azure.CosmosRepository;
+using Microsoft.EntityFrameworkCore;
 
 namespace Infra
 {
     public class Users : IUsers
     {
-        readonly IRepository<UserModel> _repository;
-        readonly IMapper _mapper;
-
-        public Users(IRepository<UserModel> repository, IMapper mapper)
+        private readonly UserContext _context;
+        public Users(UserContext context)
         {
-            _repository = repository;
-            _mapper = mapper;
+            _context = context;
         }
 
         public async Task Create(User user)
         {
-            var model = _mapper.Map<User, UserModel>(user);
-            await _repository.CreateAsync(model);
+            await _context.User.AddAsync(user);
+            await _context.SaveChangesAsync();
         }
 
         public async Task Delete(User user)
         {
-            var model = _mapper.Map<User, UserModel>(user);
-            await _repository.DeleteAsync(model);
+            _context.User.Remove(user);
+            await _context.SaveChangesAsync();
         }
 
         public async Task<User> Get(Guid id)
         {
-            var user = await _repository.GetAsync(id.ToString());
-            return _mapper.Map<UserModel, User>(user);
+            return await _context.User.FirstOrDefaultAsync(x => x.Id == id);
         }
 
         public async Task<User> Get(string email)
         {
-            var user = (await _repository.GetAsync(x => x.Email == email)).FirstOrDefault();
-            return _mapper.Map<UserModel, User>(user);
+             return await _context.User.FirstOrDefaultAsync(x => x.Email == email);
         }
 
         public async Task Update(User user)
         {
-            var model = _mapper.Map<User, UserModel>(user);
-            await _repository.UpdateAsync(model);
+            _context.Entry(user).State = EntityState.Modified;
+            await _context.SaveChangesAsync();
         }
     }
 }
