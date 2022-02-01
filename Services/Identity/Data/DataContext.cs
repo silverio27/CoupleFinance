@@ -9,7 +9,7 @@ namespace Identity.Data
 {
     public class DataContext : IdentityDbContext<User, IdentityRole<Guid>, Guid>
     {
-       
+
         IConfiguration _configuration;
         public DataContext(DbContextOptions options, IConfiguration configuration) : base(options)
         {
@@ -19,48 +19,43 @@ namespace Identity.Data
         protected override void OnModelCreating(ModelBuilder builder)
         {
             base.OnModelCreating(builder);
-            string adminId = "1329fa77-e1ee-4f86-81c5-c8112ecbfacc";
-            User admin =new(){
-                UserName = "admin",
-                NormalizedUserName = "ADMIN",
-                Email = "silverio.des.vargas@gmail.com",
-                NormalizedEmail = "SILVERIO.DES.VARGAS@GMAIL.COM",
-                EmailConfirmed = true,
-                SecurityStamp = Guid.NewGuid().ToString(),
-                Id = new Guid(adminId)
-            };
-            
-            PasswordHasher<User> hasher = new();
-            admin.PasswordHash = hasher.HashPassword(admin,_configuration.GetValue<string>("admin:password"));
-
+            Guid adminId = new Guid("1329fa77-e1ee-4f86-81c5-c8112ecbfacc");
+            User admin = new(
+                name: "admin",
+                email: "silverio.des.vargas@gmail.com",
+                password: _configuration["Admin:Password"],
+                emailConfirmed: true,
+                id: adminId
+            );
             builder.Entity<User>().HasData(admin);
 
-            string adminRoleId = "e5ca3e84-6ca9-473f-966c-76291e0d84fc";
+            Guid adminRoleId = new Guid("e5ca3e84-6ca9-473f-966c-76291e0d84fc");
             builder.Entity<IdentityRole<Guid>>().HasData(
-                new IdentityRole<Guid> {
-                    Id = new Guid(adminRoleId),
+                new IdentityRole<Guid>
+                {
+                    Id = adminRoleId,
                     Name = "admin",
                     NormalizedName = "ADMIN"
                 }
             );
 
-            string regularRoleId = "4d92915b-fe80-41eb-9c6d-6c6b03801c6b";
-
+            Guid regularRoleId = new Guid("4d92915b-fe80-41eb-9c6d-6c6b03801c6b");
             builder.Entity<IdentityRole<Guid>>().HasData(
-                new IdentityRole<Guid> {
-                    Id = new Guid(regularRoleId),
+                new IdentityRole<Guid>
+                {
+                    Id = regularRoleId,
                     Name = "regular",
                     NormalizedName = "REGULAR"
                 }
             );
 
             builder.Entity<IdentityUserRole<Guid>>().HasData(
-                new IdentityUserRole<Guid>(){
-                    RoleId = new Guid( adminRoleId),
-                    UserId = new Guid(adminId)
+                new IdentityUserRole<Guid>()
+                {
+                    RoleId = adminRoleId,
+                    UserId = adminId
                 }
             );
-
 
         }
     }
