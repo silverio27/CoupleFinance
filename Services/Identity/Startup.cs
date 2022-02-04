@@ -1,13 +1,16 @@
 using System;
 using System.Net;
 using System.Net.Mail;
+using FluentValidation.AspNetCore;
 using Identity.Auth;
 using Identity.Data;
+using Identity.SeedWork;
 using Identity.Users;
 using MediatR;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -38,7 +41,13 @@ namespace Identity
             .AddEntityFrameworkStores<DataContext>()
             .AddDefaultTokenProviders();
 
-            services.AddControllers();
+            services.AddControllers((x) => x.Filters.Add(typeof(ValidationActionFilter)))
+            .AddFluentValidation(x =>
+            {
+                x.RegisterValidatorsFromAssemblyContaining<Startup>();
+            });
+            services.Configure<ApiBehaviorOptions>(options => options.SuppressModelStateInvalidFilter = true);
+
             services.AddSwaggerGen(c =>
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "Identity", Version = "v1" });

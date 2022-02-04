@@ -9,7 +9,7 @@ using Microsoft.AspNetCore.Identity;
 
 namespace Identity.Users.Commands
 {
-    public class NewUserRequest : IRequest<Response<object>>
+    public class NewUserRequest : IRequest<Response<User>>
     {
         public string Name { get; set; }
         public string Email { get; set; }
@@ -28,7 +28,7 @@ namespace Identity.Users.Commands
         }
     }
 
-    public class NewUser : IRequestHandler<NewUserRequest, Response<object>>
+    public class NewUser : IRequestHandler<NewUserRequest, Response<User>>
     {
         private readonly UserManager<User> _manager;
         private readonly IMediator _mediator;
@@ -38,14 +38,14 @@ namespace Identity.Users.Commands
             _mediator = mediator;
         }
 
-        public async Task<Response<object>> Handle(NewUserRequest request, CancellationToken cancellationToken)
+        public async Task<Response<User>> Handle(NewUserRequest request, CancellationToken cancellationToken)
         {
             User user = new(request.Name, request.Email, request.Password);
             var result = await _manager.CreateAsync(user, request.Password);
             if (!result.Succeeded)
-                return Response.Fail()
+                return Response<User>.Fail()
                     .WithMessage("Não foi possível criar o usuário")
-                    .WithData(result.Errors);
+                    .WithErrors(result.Errors);
 
             await _manager.AddToRoleAsync(user, "regular");
 
@@ -57,12 +57,9 @@ namespace Identity.Users.Commands
                 To = user.Email
             });
 
-            return Response.Ok()
+            return Response<User>.Ok()
                 .WithMessage("Conta criada. Veja seu email para confirmar sua conta")
-                .WithData(new
-                {
-                    codeToConfirmAccountOnEmail = codeToConfirmAccountOnEmail
-                });
+                .WithData(user);
         }
     }
 }

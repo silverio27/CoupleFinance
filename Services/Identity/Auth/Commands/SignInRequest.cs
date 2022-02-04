@@ -42,16 +42,16 @@ namespace Identity.Auth.Commands
         {
             var user = await _signInManager.UserManager.Users.FirstOrDefaultAsync(x => x.Email == request.Email);
             if (user is null)
-                return Response.Fail().WithMessage("Usuário não encontrado");
+                return Response<object>.Fail().WithMessage("Usuário não encontrado");
 
             var identityResult = await _signInManager.PasswordSignInAsync(user, request.Password, false, false);
             if (!identityResult.Succeeded)
-                return Response.Fail().WithMessage("Senha errada.");
+                return Response<object>.Fail().WithMessage("Senha errada.");
 
             var role = (await _signInManager.UserManager.GetRolesAsync(user)).FirstOrDefault();
             var token = _token.GenerateToken(user, role);
 
-            return Response.Ok().WithMessage("Usuário logado.").WithData(new { Token = token });
+            return Response<object>.Ok().WithMessage("Usuário logado.").WithData(new { Token = token });
 
         }
 

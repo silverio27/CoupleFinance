@@ -1,6 +1,3 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
 using Identity.SeedWork;
@@ -23,7 +20,7 @@ namespace Identity.Auth.Commands
         public async Task<Response<object>> Handle(LogoutRequest request, CancellationToken cancellationToken)
         {
              await _signManager.SignOutAsync();
-             return Response.Ok().WithMessage("Usuário deslogado");
+             return Response<object>.Ok().WithMessage("Usuário deslogado");
         }
     }
 }

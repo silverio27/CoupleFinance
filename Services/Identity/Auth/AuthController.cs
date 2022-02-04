@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Text;
 using System.Threading.Tasks;
 using Identity.Auth.Commands;
 using MediatR;
@@ -14,10 +15,7 @@ namespace Identity.Auth
     {
         IMediator _mediator;
 
-        public AuthController(IMediator mediator)
-        {
-            _mediator = mediator;
-        }
+        public AuthController(IMediator mediator) => _mediator = mediator;
 
         [HttpPost("signin")]
         public async Task<IActionResult> SignIn(SignInRequest request)
@@ -28,7 +26,7 @@ namespace Identity.Auth
 
             return BadRequest(result);
         }
-        
+
         [HttpPost("logout")]
         public async Task<IActionResult> Logout(LogoutRequest request)
         {
@@ -36,10 +34,23 @@ namespace Identity.Auth
             return Ok(result);
         }
 
-        [HttpGet]
-        public IActionResult ActiveAccount(){
-            Uri uri = new("www.google.com");
-            return Content("window.location.href = https://www.google.com", "application/x-javascript; charset=utf-8");
+        [HttpPost("active-account")]
+        public async Task<IActionResult> ActiveAccount(ActiveAccountRequest request)
+        {
+
+            var result = await _mediator.Send(request);
+            if (!result.Success)
+                return NotFound(result);
+            return Ok(result);
+        }
+
+        [HttpPost("request-new-password")]
+        public async Task<IActionResult> RequestNewPassword(TokenResetPasswordRequest request)
+        {
+            var result = await _mediator.Send(request);
+            if (!result.Success)
+                return NotFound(result);
+            return Ok(result);
         }
 
 

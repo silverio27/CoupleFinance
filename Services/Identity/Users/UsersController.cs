@@ -1,8 +1,8 @@
 using System;
-using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Identity.Users.Commands;
+using Identity.Users.Queries;
 using MediatR;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
@@ -24,14 +24,35 @@ namespace Identity.Users
         }
 
         [HttpGet]
-        public async Task<IActionResult> Get()
+        public async Task<IActionResult> Get([FromQuery] UserQueryRequest request)
         {
-            var users = await _signInManager.UserManager.Users.ToListAsync();
-            return Ok(users);
+            return Ok(await _mediator.Send(request));
+        }
+
+        [HttpGet("{id}")]
+        public async Task<IActionResult> GetById(Guid id)
+        {
+            var user = await _signInManager.UserManager.Users.Select(x=>new UserView(){
+                Email = x.Email,
+                Id = x.Id,
+                Name = x.UserName
+            }).FirstOrDefaultAsync(x => x.Id == id);
+            if (user is null)
+                return NotFound();
+            return Ok(user);
         }
 
         [HttpPost]
         public async Task<IActionResult> Create(NewUserRequest request)
+        {
+            var result = await _mediator.Send(request);
+            if (!result.Success)
+                return BadRequest(result);
+            return CreatedAtAction(nameof(GetById), new { Id = result.Data.Id }, result.Data);
+        }
+
+        [HttpPut("{id}")]
+        public async Task<IActionResult> Update(Guid id, UpdateUserRequest request)
         {
             var result = await _mediator.Send(request);
             if (!result.Success)
