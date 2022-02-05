@@ -4,6 +4,7 @@ using System.Threading.Tasks;
 using Identity.Users.Commands;
 using Identity.Users.Queries;
 using MediatR;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
@@ -11,6 +12,7 @@ using Microsoft.EntityFrameworkCore;
 namespace Identity.Users
 {
     [ApiController]
+    [Authorize]
     [Route("[controller]")]
     public class UsersController : ControllerBase
     {
@@ -23,6 +25,7 @@ namespace Identity.Users
             _mediator = mediator;
         }
 
+        [Authorize(Roles = "admin")]
         [HttpGet]
         public async Task<IActionResult> Get([FromQuery] UserQueryRequest request)
         {
@@ -32,7 +35,8 @@ namespace Identity.Users
         [HttpGet("{id}")]
         public async Task<IActionResult> GetById(Guid id)
         {
-            var user = await _signInManager.UserManager.Users.Select(x=>new UserView(){
+            var user = await _signInManager.UserManager.Users.Select(x => new UserView()
+            {
                 Email = x.Email,
                 Id = x.Id,
                 Name = x.UserName
@@ -60,6 +64,7 @@ namespace Identity.Users
             return Ok(result);
         }
 
+        [Authorize(Roles = "admin")]
         [HttpDelete("{id}")]
         public async Task<IActionResult> Delete(Guid id)
         {

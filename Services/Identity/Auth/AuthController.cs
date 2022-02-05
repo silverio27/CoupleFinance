@@ -1,22 +1,20 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 using Identity.Auth.Commands;
 using MediatR;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Identity.Auth
 {
+    [Authorize]
     [ApiController]
     [Route("[controller]")]
     public class AuthController : ControllerBase
     {
         IMediator _mediator;
-
         public AuthController(IMediator mediator) => _mediator = mediator;
 
+        [AllowAnonymous]
         [HttpPost("signin")]
         public async Task<IActionResult> SignIn(SignInRequest request)
         {
@@ -27,6 +25,7 @@ namespace Identity.Auth
             return BadRequest(result);
         }
 
+        [Authorize]
         [HttpPost("logout")]
         public async Task<IActionResult> Logout(LogoutRequest request)
         {
@@ -34,6 +33,7 @@ namespace Identity.Auth
             return Ok(result);
         }
 
+        [AllowAnonymous]
         [HttpPost("active-account")]
         public async Task<IActionResult> ActiveAccount(ActiveAccountRequest request)
         {
@@ -43,7 +43,7 @@ namespace Identity.Auth
                 return NotFound(result);
             return Ok(result);
         }
-
+        [AllowAnonymous]
         [HttpPost("request-new-password")]
         public async Task<IActionResult> RequestNewPassword(TokenResetPasswordRequest request)
         {
