@@ -1,0 +1,16 @@
+.profile {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    background-color: white;
+    width: 200px;
+    height: 300px;
+    gap: 20px;
+    padding: 20px;
+    border-radius: 20px;
+}
+
+.profile button {
+    width: 100%;
+}

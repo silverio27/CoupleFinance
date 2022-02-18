@@ -12,8 +12,8 @@ const routes: Routes = [
     loadChildren: () =>
       import("./expense/expense.module").then((m) => m.ExpenseModule),
   },
-  { path: '', pathMatch: 'full', redirectTo: 'expense' },
   { path: 'category', loadChildren: () => import('./category/category.module').then(m => m.CategoryModule) },
+  { path: '', pathMatch: 'full', redirectTo: 'identity' },
 ];
 
 @NgModule({

@@ -25,7 +25,7 @@ namespace Identity.Users
             _mediator = mediator;
         }
 
-        [Authorize(Roles = "admin")]
+
         [HttpGet]
         public async Task<IActionResult> Get([FromQuery] UserQueryRequest request)
         {
@@ -46,6 +46,7 @@ namespace Identity.Users
             return Ok(user);
         }
 
+        [AllowAnonymous]
         [HttpPost]
         public async Task<IActionResult> Create(NewUserRequest request)
         {

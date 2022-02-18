@@ -1,0 +1,62 @@
+.main {
+  display: grid;
+  background-image: url("../../../../assets/signin.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 100%;
+  width: 100%;
+  color: white;
+}
+
+.columns {
+  grid-template-columns: 50% 50%;
+}
+
+.item {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 10px;
+}
+
+.banner p {
+  font-size: larger;
+}
+
+.child-box {
+  width: 350px;
+  height: 550px;
+  padding: 39px;
+  background-color: white;
+  border-radius: 20px;
+  color: var(--color-1);
+}
+
+.mat-raised-button.mat-primary {
+  background-color: var(--color-1);
+}
+
+.width-full {
+  width: 100%;
+}
+a {
+  color: var(--color-1);
+  margin-top: 10px;
+}
+
+.header {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  width: 100%;
+  margin-bottom: 20px;
+}
+
+.header span {
+  font-size: 29px;
+}
+.header a {
+  margin: 0;
+}

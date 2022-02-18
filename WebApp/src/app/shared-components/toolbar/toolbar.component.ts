@@ -16,6 +16,7 @@ import { SearchService } from "./search.service";
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class ToolbarComponent implements OnInit {
+  isOpen = false;
   @Output() toggleMenu = new EventEmitter();
 
   searchControl = new FormControl();

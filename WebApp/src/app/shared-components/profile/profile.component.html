@@ -1,0 +1,9 @@
+<div class="profile mat-elevation-z4">
+
+    <cf-user-avatar [showName]="true" [name]="user.username" ></cf-user-avatar>
+    
+    <span  >{{user.email}}</span>
+    <span class="spacer"></span>
+    
+    <button mat-raised-button (click)="logout()" >Sair</button>
+</div>

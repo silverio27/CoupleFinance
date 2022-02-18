@@ -23,6 +23,7 @@ namespace Identity.Auth
             {
                 new("username", user.UserName),
                 new("id", user.Id.ToString()),
+                new("email", user.Email),
                 new(ClaimTypes.Role,role)
             };
             var key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_configuration["Secret"]));

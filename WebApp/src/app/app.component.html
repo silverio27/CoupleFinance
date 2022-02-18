@@ -1,5 +1,9 @@
-<cf-toolbar></cf-toolbar>
-<cf-side-menu>
+<ng-container *ngIf="user; else elseTemplate">
+  <cf-toolbar></cf-toolbar>
+  <cf-side-menu>
+    <router-outlet></router-outlet>
+  </cf-side-menu>
+</ng-container>
+<ng-template #elseTemplate>
   <router-outlet></router-outlet>
-  
-</cf-side-menu>
+</ng-template>
